@@ -1,0 +1,415 @@
+
+<div class="hero-slider-section">
+    <!-- Slider main container -->
+    <div class="hero-slider-active swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper" id="swiper-wrapper-88828c723d145fdb" aria-live="polite" style="transition: all 0ms ease 0s;">
+            <div class="hero-single-slider-item swiper-slide swiper-slide-duplicate swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="1" role="group" aria-label="1 / 1" style="width: 1349px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
+                <!-- Hero Slider Image -->
+                <owl-carousel-o [options]="customSliderOptions">
+                    <!-- Slide 1 -->
+                    <ng-template carouselSlide>
+                      
+                        <div class="hero-slider-bg" >
+                          <img src="assets/images/banner/LeLaBo1.jpg" alt="">
+                        </div>
+                      
+                    </ng-template>
+                    <ng-template carouselSlide>
+                     
+                        <div class="hero-slider-bg">
+                          <img src="assets/images/banner/Lelabo.jpg" alt="">
+                        </div>
+                     
+                    </ng-template>
+                    <ng-template carouselSlide>
+                       
+                          <div class="hero-slider-bg">
+                            <img src="assets/images/banner/LeLaBo2.png" alt="">
+                          </div>
+                       
+                      </ng-template>
+                  </owl-carousel-o>
+            </div>
+           
+        </div>
+        <!-- If we need pagination -->
+       
+        <!-- If we need navigation buttons -->
+       
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+</div> 
+    
+      
+
+<!-- Start Service Section -->
+<div class="service-promo-section section-top-gap-100">
+    <div class="service-wrapper">
+        <div class="container">
+            <div class="row">
+                <!-- Start Service Promo Single Item -->
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="service-promo-single-item"  data-aos="fade-up"  data-aos-delay="0">
+                       <div class="image">
+                            <img src="/assets/images/icons/service-promo-5.png" alt="">
+                       </div>
+                        <div class="content">
+                            <h6 class="title">GIAO HÀNG NHANH</h6>
+                            <p>
+                                Nhận lại 10% tiền mặt, giao hàng miễn phí, trả lại miễn phí và hơn thế nữa tại hơn 1000 nhà bán lẻ hàng đầu!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Service Promo Single Item -->
+                <!-- Start Service Promo Single Item -->
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="service-promo-single-item"  data-aos="fade-up"  data-aos-delay="200">
+                       <div class="image">
+                            <img src="/assets/images/icons/service-promo-6.png" alt="">
+                       </div>
+                        <div class="content">
+                            <h6 class="title">30 NGÀY HOÀN TIỀN</h6>
+                            <p>Đảm bảo sự hài lòng 100% hoặc nhận lại tiền trong vòng 30 ngày!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Service Promo Single Item -->
+                <!-- Start Service Promo Single Item -->
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="service-promo-single-item"  data-aos="fade-up"  data-aos-delay="400">
+                       <div class="image">
+                            <img src="/assets/images/icons/service-promo-7.png" alt="">
+                       </div>
+                        <div class="content">
+                            <h6 class="title">THANH TOÁN AN TOÀN</h6>
+                            <p>Thanh toán bằng các phương thức thanh toán an toàn và phổ biến nhất thế giới.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Service Promo Single Item -->
+                <!-- Start Service Promo Single Item -->
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="service-promo-single-item"  data-aos="fade-up"  data-aos-delay="600">
+                       <div class="image">
+                            <img src="/assets/images/icons/service-promo-8.png" alt="">
+                       </div>
+                        <div class="content">
+                            <h6 class="title">KHÁCH HÀNG THÂN QUEN</h6>
+                            <p>Thẻ cho 30% giao dịch mua còn lại của họ với tỷ lệ hoàn lại tiền là 1%.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Service Promo Single Item -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Service Section -->
+
+<!-- Start Banner Section -->
+<div class="banner-section section-top-gap-100">
+    <div class="banner-wrapper clearfix">
+        <!-- Start Banner Single Item -->
+        <a *ngFor="let blog of blog" href="product-details-default.html">
+            <div class="banner-single-item banner-style-7 banner-animation banner-color--green float-left"  data-aos="fade-up"  data-aos-delay="0">
+                <div class="image">
+                    <img [src]="getProductImageUrl(blog.image_url)" alt="{{ blog.image_url}}" />
+                </div>
+            </div>
+        </a>
+        <!-- End Banner Single Item -->
+        <!-- Start Banner Single Item -->
+        <!-- <a href="product-details-default.html">
+            <div class="banner-single-item banner-style-7 banner-animation banner-color--green float-left"  data-aos="fade-up"  data-aos-delay="200">
+                <div class="image">
+                    <img class="img-fluid" src="/assets/images/banner/2.png" alt="">
+                </div>
+            </div> 
+        </a> -->
+        <!-- End Banner Single Item -->
+        <!-- Start Banner Single Item -->
+        <!-- <a href="product-details-default.html">
+            <div class="banner-single-item banner-style-7 banner-animation banner-color--green float-left"  data-aos="fade-up"  data-aos-delay="400">
+                <div class="image">
+                    <img class="img-fluid" src="/assets/images/banner/3.png" alt="">
+                </div>
+            </div> 
+        </a> -->
+        <!-- End Banner Single Item -->
+    </div>
+</div>
+<!-- End Banner Section -->
+
+<!-- Start Product Default Slider Section -->
+<div class="product-default-slider-section section-top-gap-100 section-fluid">
+    <!-- Start Section Content Text Area -->
+    <div class="section-title-wrapper"  data-aos="fade-up"  data-aos-delay="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-content-gap">
+                        <div class="secton-content">
+                            <h3  class="section-title">Sản Phẩm Mới</h3>
+                            <p>Đặt hàng ngay để nhận ưu đãi & quà tặng độc quyền</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Start Section Content Text Area -->
+    <div class="product-wrapper aos-init aos-animate"  data-aos="fade-up"  data-aos-delay="200">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div  class="product-slider-default-2rows default-slider-nav-arrow" >
+                        <!-- Slider main container -->
+                        <div class="swiper-container product-default-slider-4grid-2row swiper-container-initialized swiper-container-horizontal swiper-container-multirow">
+                            <!-- Additional required wrapper -->
+                            <div   class="swiper-wrapper" id="swiper-wrapper-d1a568c87bc71065a" aria-live="polite" style="width: 1240px; transform: translate3d(0px, 0px, 0px);">
+                                <!-- Start Product Default Single Item -->
+                                <div *ngFor="let product of products"  class="product-default-single-item product-color--pink swiper-slide swiper-slide-active" role="group" aria-label="1 / 8" style="width: 250px; margin-right: 30px;" >
+                                    <div class="image-box">
+                                        <a href="/client/productDetail/{{ product.product_id}}" class="image-link">
+                                            <!-- <img src="/assets/images/product/default/home-3/{{ product.product_image }}" alt=""> -->
+                                            <img [src]="getProductImageUrl(product.product_image)" alt="{{ product.product_image}}" />
+                                        </a>
+                                        <div class="tag">
+                                            <span>sale</span>
+                                        </div>
+                                        <div class="action-link">
+                                            <div class="action-link-left" >
+                                                <button type="button"*ngIf="islogin" (click)="onAddTocart(product)">
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
+                                                </button>
+                                                <button type="button"*ngIf="!islogin" >
+                                                    <a routerLink="/client/login" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
+                                                </button>
+                                            </div>
+                                            <div class="action-link-right">
+                                                <button type="button" *ngIf="islogin" (click)="onFavorites(product.product_id)">
+                                                    <a ><i class="icon-heart"></i></a>
+                                                </button>
+                                                <a *ngIf="!islogin" routerLink="/client/login" ><i class="icon-heart"></i></a>
+                                                
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="content-left">
+                                            <h6 class="title"><a href="/client/productDetail/{{ product.product_id}}">{{ product.product_name }}</a></h6>
+                                            <ul class="review-star">
+                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                <li class="empty"><i class="ion-android-star"></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="content-right">
+                                            <span class="price">{{ product.price | number:'1.0-0'}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <!-- End Product Default Single Item -->
+
+                            </div>
+                            
+                        </div>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<!-- End Product Default Slider Section -->
+
+<!-- Start Product Default Slider Section -->
+<div class="product-default-slider-section section-fluid section-inner-bg">
+    <!-- Start Section Content Text Area -->
+    <div class="section-title-wrapper" data-aos="fade-up"  data-aos-delay="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-content-gap">
+                        <div class="secton-content">
+                            <h3  class="section-title">SẢN PHẨM BÁN CHẠY</h3>
+                            <p>Thêm sản phẩm bán chạy nhất của chúng tôi vào danh sách hàng tuần của bạn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Start Section Content Text Area -->
+    <div class="product-wrapper aos-init aos-animate"  data-aos="fade-up"  data-aos-delay="200">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product-slider-default-2rows default-slider-nav-arrow">
+                        <!-- Slider main container -->
+                        <div class="swiper-container product-default-slider-4grid-2row swiper-container-initialized swiper-container-horizontal swiper-container-multirow">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper" id="swiper-wrapper-1063cd8a58aafe67c" aria-live="polite" style="width: 1240; transform: translate3d(0px, 0px, 0px);">
+                                <!-- Start Product Default Single Item -->
+                                <div *ngFor=" let all of bestsale" class="product-default-single-item product-color--pink swiper-slide swiper-slide-active" role="group" aria-label="1 / 8" style="width: 245px; margin-right: 30px;">
+                                    <div class="image-box">
+                                        <a href="/client/productDetail/{{ all.product_id}}" class="image-link">
+                                            <!-- <img src="/assets/images/product/default/home-3/{{ all.product_image }}" alt=""> -->
+                                            <img [src]="getProductImageUrl(all.product_image)" alt="{{ all.product_image}}" />
+        
+                                        </a>
+                                        <div class="tag">
+                                            <span>sale</span>
+                                        </div>
+                                        <div class="action-link">
+                                            <div class="action-link-left" >
+                                                <button type="button"*ngIf="islogin" (click)="onAddTocart(all)">
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
+                                                </button>
+                                                <button type="button"*ngIf="!islogin" >
+                                                    <a routerLink="/client/login" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
+                                                </button>
+                                            </div>
+                                            <div class="action-link-right">
+                                                <button type="button" *ngIf="islogin" (click)="onFavorites(all.product_id)">
+                                                    <a ><i class="icon-heart"></i></a>
+                                                </button>
+                                                <a *ngIf="!islogin" routerLink="/client/login" ><i class="icon-heart"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="content-left">
+                                            <h6 class="title"><a href="/client/productDetail/{{ all.product_id}}">{{ all.product_name }}</a></h6>
+                                            <ul class="review-star">
+                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                <li class="fill"><i class="ion-android-star"></i></li>
+                                                <li class="empty"><i class="ion-android-star"></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="content-right">
+                                            <span class="price">{{ all.price | number:'1.0-0'}} vnd</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            
+                        </div>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<!-- End Product Default Slider Section -->
+
+<!-- Start Blog Slider Section -->
+<div class="blog-default-slider-section section-top-gap-100 section-fluid">
+    <!-- Start Section Content Text Area -->
+    <div class="section-title-wrapper" data-aos="fade-up"  data-aos-delay="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-content-gap">
+                        <div class="secton-content">
+                            <h3  class="section-title">BLOG MỚI NHẤT</h3>
+                            <p>Trình bày bài viết theo cách tốt nhất để làm nổi bật những khoảnh khắc thú vị trên blog của bạn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Start Section Content Text Area -->
+    <div class="blog-wrapper" data-aos="fade-up"  data-aos-delay="200">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="blog-default-slider default-slider-nav-arrow">
+                        <!-- Slider main container -->
+                        <div class="swiper-container blog-slider swiper-container-initialized swiper-container-horizontal">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper" id="swiper-wrapper-beefc858c94bab9f" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+                                <!-- Start Product Default Single Item -->
+                                <div *ngFor="let tintuc of blog"class="blog-default-single-item blog-color--pink swiper-slide swiper-slide-active" role="group" aria-label="1 / 6" style="width: 350px; margin-right: 30px;">
+                                    <div class="image-box">
+                                        <a href="blog-single-sidebar-left.html" class="image-link">
+                                            <!-- <img class="img-fluid" src="/assets/images/banner/{{ tintuc.image_url }}" alt=""> -->
+                                            <img [src]="getProductImageUrl(tintuc.image_url)" alt="{{ tintuc.image_url}}" />
+
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h6 class="title"><a href="blog-single-sidebar-left.html"> {{ tintuc.title }}</a></h6>
+                                        <div class="inner">
+                                            <a href="blog-single-sidebar-left.html" class="read-more-btn icon-space-left">ĐỌC THÊM <span><i class="ion-ios-arrow-thin-right"></i></span></a>
+                                            <div class="post-meta">
+                                                <a href="#" class="date"> {{ tintuc.date_published }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- End Product Default Single Item -->
+
+                            </div>
+                        </div>
+                        <!-- If we need navigation buttons -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<!-- End Blog Slider Section -->
+
+<!-- Start Company Logo Section -->
+<div class="company-logo-section section-top-gap-100 section-fluid">
+    <div class="company-logo-wrapper" data-aos="fade-up"  data-aos-delay="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="company-logo-slider default-slider-nav-arrow">
+
+                        
+                        <owl-carousel-o [options]="customOptions">
+
+                            <ng-container *ngFor="let b of brand">
+                            <ng-template carouselSlide>
+                                <div class="company-logo-single-item" role="group" aria-label="1 / 8" style="width: 167.143px;">
+                                <div class="image">
+                                    <a routerLink=""> <img [src]="getImageUrl(b.brand_image)" alt="{{ b.brand_image}}" /></a>
+                                </div>
+                                </div>
+                            </ng-template>
+                            </ng-container>
+                        
+                        </owl-carousel-o>
+                        
+                        <!-- If we need navigation buttons -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Company Logo Section -->
+

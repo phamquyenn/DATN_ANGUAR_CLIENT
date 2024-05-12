@@ -1,0 +1,110 @@
+
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section breadcrumb-bg-color--white">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">Giỏ Hàng</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="shop-grid-sidebar-left.html">Shop</a></li>
+                                    <li class="active" aria-current="page">Cart</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+    <!-- ...:::: Start Cart Section:::... -->
+    <div class="cart-section">
+        <!-- Start Cart Table -->
+        <div class="cart-table-wrapper"  data-aos="fade-up"  data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table_desc">
+                            <div class="table_page table-responsive">
+                                <table>
+                                    <!-- Start Cart Table Head -->
+                                    <thead>
+                                        <tr>
+                                            <th class="product_thumb">Ảnh</th>
+                                            <th class="product_name">Sản phẩm</th>
+                                            <th class="product-price">Giá</th>
+                                            <th class="product_quantity">Số lượng</th>
+                                            <th class="product_total">Tổng tiền</th>
+                                            <th class="product_remove">Xóa</th>
+                                        </tr>
+                                    </thead> <!-- End Cart Table Head -->
+                                    <tbody>
+                                        <!-- Start Cart Single Item-->
+                                        <tr *ngFor=" let cart of carts, let i=index">
+                                            <td class="product_thumb">
+                                                <a href="#">
+                                                    <!-- <img src="assets/images/product/default/home-3/{{ cart.img }}" alt=""> -->
+                                                    <img [src]="getProductImageUrl(cart.img)" alt="{{ cart.img}}" />
+                                                </a>
+                                            </td>
+                                            <td class="product_name"><a href="product-details-default.html">{{ cart.name }}</a></td>
+                                            <td class="product-price">{{ cart.price | number:'1.0-0' }} vnd</td>
+                                            <td class="product_quantity"> <input min="1" max="100" [value]="cart.quantity" type="number" (change)="updateQuantity(i, $event)" ></td>
+                                            <td class="product_total">{{ subtotal(cart)| number:'1.0-0' }} vnd</td>
+                                            <td class="product_remove">
+                                                <button (click)="removecart(i)">
+                                                   <i class="fa fa-trash-o"></i>
+                                                </button>
+                                            </td>
+                                        </tr> <!-- End Cart Single Item-->
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="cart_submit">
+                                <a routerLink="/client/Home"><button class="btn btn-md btn-golden" type="submit">Tiếp tục mua hàng</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End Cart Table -->
+
+        <!-- Start Coupon Start -->
+        <div class="coupon_area">
+            <div class="container">
+                <div class="row">
+                    <!-- <div class="col-lg-6 col-md-6">
+                        <div class="coupon_code left"  data-aos="fade-up"  data-aos-delay="200">
+                            <h3>Coupon</h3>
+                            <div class="coupon_inner">
+                                <p>Enter your coupon code if you have one.</p>
+                                <input class="mb-2" placeholder="Coupon code" type="text">
+                                <button type="submit" class="btn btn-md btn-golden">Apply coupon</button>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="coupon_code right"  data-aos="fade-up"  data-aos-delay="400">
+                            <h3>Tổng giỏ hàng</h3>
+                            <div class="coupon_inner">
+                                <div class="cart_subtotal">
+                                    <p>Tổng tiền</p>
+                                    <p class="cart_amount">{{ totalPrice | number:'1.0-0'}} vnd</p>
+                                </div>
+                                <div class="checkout_btn">
+                                    <a class="btn btn-md btn-golden" (click)="checkout()">Đặt hàng</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End Coupon Start -->
+    </div> <!-- ...:::: End Cart Section:::... -->
+
+

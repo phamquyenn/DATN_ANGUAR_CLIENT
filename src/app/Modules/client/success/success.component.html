@@ -1,0 +1,20 @@
+
+
+    <!-- ...:::: Start Error Section :::... -->
+    <div class="error-section">
+        <div class="container">
+            <div class="row">
+                <div class="error-form">
+                    <h2 class="big-title" data-aos="fade-up"  data-aos-delay="0">420</h2>
+                    <h4 class="sub-title" data-aos="fade-up"  data-aos-delay="200" *ngIf="vnpayResult">Code: {{ vnpayResult.code }}</h4>
+                    <p data-aos="fade-up" data-aos-delay="400">Đơn hành sẽ được gửi đi sớm nhất.</p>
+                    <div class="row">
+                        <div class="col-10 offset-1 col-md-4 offset-md-4">
+                            <a routerLink="/client/order" class="btn btn-md btn-black-default-hover mt-7" data-aos="fade-up"  data-aos-delay="800" style="margin-right: 5px;">Xem đơn hàng</a>
+                            <a routerLink="/client/Home" class="btn btn-md btn-black-default-hover mt-7" data-aos="fade-up"  data-aos-delay="800" >Trang Chủ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Error Section :::... -->

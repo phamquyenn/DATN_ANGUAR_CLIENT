@@ -1,0 +1,102 @@
+
+    <!-- Offcanvas Overlay -->
+    <div class="offcanvas-overlay"></div>
+
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section breadcrumb-bg-color--white">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">Tin tức </h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--white breadcrumb-nav-hover-color--white">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="blog-grid-sidebar-left.html">Blog</a></li>
+                                    <li class="active" aria-current="page">Tin Tức</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+    <!-- ...:::: Start Blog List Section:::... -->
+    <div class="blog-section">
+        <div class="container">
+            <div class="row flex-column-reverse flex-lg-row-reverse">
+                <div class="col-lg-3">
+                    <!-- Start Sidebar Area -->
+                    <div class="siderbar-section" data-aos="fade-up"  data-aos-delay="0">
+
+                        <!-- Start Single Sidebar Widget -->
+                        <div class="sidebar-single-widget" >
+                            <h4 class="sidebar-title">Loại Nước Hoa</h4>
+                            <div class="sidebar-content">
+                                <ul *ngFor="let loai of category" class="sidebar-menu">
+
+                                   <li ><a href="#">{{ loai.category_name }}</a></li>   
+
+                                </ul>
+                            </div>
+                        </div> <!-- End Single Sidebar Widget -->
+
+                        <!-- Start Single Sidebar Widget -->
+                        <div class="sidebar-single-widget" >
+                            <h4 class="sidebar-title">Thương Hiệu</h4>
+                            <div class="sidebar-content">
+                                <ul *ngFor="let new of brands" class="sidebar-menu">
+                                   <li ><a href="#">{{ new.name }}</a></li>
+ 
+
+                                </ul>
+                            </div>
+                        </div> <!-- End Single Sidebar Widget -->
+
+                    </div> <!-- End Sidebar Area -->
+                </div>
+                <div class="col-lg-9">
+                    <div class="blog-wrapper">
+                        <div  class="row mb-n6">
+                            <div class="col-12 mb-6" *ngFor=" let all of blogs | paginate: { itemsPerPage: 2, currentPage: p }">
+                                <!-- Start Product Default Single Item -->
+                                
+                                <div class="blog-list blog-list-single-item blog-color--golden" data-aos="fade-up"  data-aos-delay="0">
+                                    <div class="row">
+                                        <div class="col-xl-5 col-md-6">
+                                            <div class="image-box">
+                                                <a href="blog-single-sidebar-left.html" class="image-link">
+                                                     <img [src]="getProductImageUrl(all.image_url)" alt="{{ all.image_url}}" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-7 col-md-6">
+                                            <div class="content">
+                                                <ul class="post-meta">
+                                                   <li>Đăng bởi : <a href="#" class="author">Phạm Quyền</a></li> 
+                                                   <li>thời gian : <a href="#" class="date">{{ all.date_published }}</a></li> 
+                                                </ul>
+                                                <h6 class="title"><a href="blog-single-sidebar-left.html" [innerHTML]=" all.title"> </a></h6>
+                                                <p [innerHTML]=" all.content"></p>
+                                                <a href="#" class="read-more-btn icon-space-left">Đọc thêm <span class="icon"><i class="ion-ios-arrow-thin-right"></i></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Product Default Single Item -->
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- Start Pagination -->
+                    
+                    <div class="page-pagination text-center" data-aos="fade-up"  data-aos-delay="0">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div> <!-- End Pagination -->
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End List Section:::... -->

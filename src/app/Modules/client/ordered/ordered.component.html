@@ -1,0 +1,89 @@
+
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section breadcrumb-bg-color--white">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">Thanh Toán</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a routerLink="/">Home</a></li>
+                                    <li><a routerLink="/shop">Shop</a></li>
+                                    <li class="active" aria-current="page">Thanh Toán</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+    <!-- ...:::: Start Checkout Section:::... -->
+    <div class="checkout-section">
+        <div class="container">
+            <div class="row">
+                
+            </div>
+            <!-- Start User Details Checkout Form -->
+            <div class="checkout_form" data-aos="fade-up"  data-aos-delay="400">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <form  >
+                            
+                            <h3>Đơn hàng của bạn</h3>
+                            <div class="order_table table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th >Ảnh</th>
+                                            <th>Tên</th>
+                                            <th>Số lượng</th>
+                                            <th>Phương thức toán</th>
+                                            <th>Ngày Đặt</th>
+                                            <th>Địa Chỉ</th>
+                                            <th>Trạng thái</th>
+                                            <th>Chọn</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr  *ngFor="let order of customerOrder">
+                                            <td>
+                                                <img style="width: 50px;"[src]="getProductImageUrl(order.product_image)" alt="{{order.product_image}}" />
+                                           </td>
+                                            <td>{{ order.product_name }} </td>
+                                            <td> {{ order.total_quantity }}</td>
+                                            <td>Online</td>
+                                            <td>{{ order.order_date  | date:'dd/MM/yyyy' }}</td>
+                                            <td>{{ order.shipAddress }} </td>
+                                            <td>{{ order.order_status }}</td>
+                                            <td>
+                                                <input type="checkbox" (change)="handleCheckboxChange(order.product_id)">
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                    
+                                </table>
+                                
+                            </div>
+                            <div class="payment_method">
+                                <div class="order_button pt-3">
+                                    <a class="btn btn-md btn-black-default-hover" routerLink="/client/order" (click)="cancelSelectedOrders()" style="margin-right: 5px;" >Hủy Đơn Hàng Bán</a>
+                                    <a class="btn btn-md btn-black-default-hover" href="#" >Quay lại trang chủ</a>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+            </div> <!-- Start User Details Checkout Form -->
+        </div>
+    </div><!-- ...:::: End Checkout Section:::... -->
+

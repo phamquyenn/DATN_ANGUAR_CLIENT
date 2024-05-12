@@ -1,0 +1,132 @@
+
+<!-- CONTENT -->
+<div class="content">
+    <!-- Animated -->
+    <div class="animated fadeIn">
+        <!-- Widgets  -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-1">
+                                <i class="pe-7s-cash"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text"  *ngIf="admin">{{ TotalOrder | number:'1.0-0' }}</div>
+                                    <div class="stat-heading">Doanh Thu</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-2">
+                                <i class="pe-7s-cart"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text"  *ngIf="admin">{{ CountOrder | number:'1.0-0' }}</div>
+                                    <div class="stat-heading"><a routerLink="/admin/order">Đơn Hàng</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-3">
+                                <i class="pe-7s-browser"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text"  *ngIf="admin"><span class="count">349</span></div>
+                                    <div class="stat-heading">Kho</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-4">
+                                <i class="pe-7s-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text"  *ngIf="admin">{{ totalCus }}</div>
+                                    <div class="stat-heading"><a routerLink="/admin/customer">Khách Hàng</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Widgets -->
+        <!--  Traffic  -->  
+        <!-- <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart> -->
+        <!--  /Traffic -->
+        <div class="clearfix"></div>
+        <!-- Orders -->
+        
+        <div class="content">
+            <div class="animated fadeIn" *ngIf="admin">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Biểu Đồ Theo Tuần  </h4>
+                                <div class="btn-group" role="group" aria-label="Xem Thống Kê">
+                                </div>
+                                <canvas id="weeklySalesChart"></canvas> 
+                            </div>
+                        </div>
+                    </div><!-- /# column -->
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Biểu Đồ Tháng  </h4>
+                                <div class="btn-group" role="group" aria-label="Xem Thống Kê">
+                                </div>
+                                <canvas id="monthlySalesChart"></canvas>
+                            </div>
+                        </div>
+                    </div><!-- /# column -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Biểu Đồ Theo Năm  </h4>
+                                <div class="btn-group" role="group" aria-label="Xem Thống Kê">
+                                </div>
+                                <canvas id="YearChart"></canvas> 
+                            </div>
+                        </div>
+                    </div><!-- /# column -->
+                    
+                </div>
+            </div><!-- .animated -->
+        </div>
+
+        
+        
+    </div>
+    <!-- .animated -->
+</div>
+

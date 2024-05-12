@@ -1,0 +1,78 @@
+  <!-- ...:::: Start Breadcrumb Section:::... -->
+  <div class="breadcrumb-section breadcrumb-bg-color--white">
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="breadcrumb-title">Login</h3>
+                    <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                        <nav aria-label="breadcrumb">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="shop-grid-sidebar-left.html">Shop</a></li>
+                                <li class="active" aria-current="page">Login</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+ <!-- ...:::: Start Customer Login Section :::... -->
+ <div class="customer-login">
+    <div class="container">
+        <div class="row">
+            <!--login area start-->
+            <div class="col-lg-6 col-md-6">
+                <div class="account_form" data-aos="fade-up"  data-aos-delay="0">
+                    <h3>Đăng Nhập</h3>
+                    <form action="#" method="POST" [formGroup]="formLogin" (ngSubmit)="onLogin()" >
+                        <div class="alert alert-danger" *ngIf="checkError">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>{{ checkError }}!</strong> 
+                        </div>
+                        <div class="default-form-box">
+                            <label>Email <span>*</span></label>
+                            <input type="text" class="form-control" formControlName="email" placeholder="Nhập email">
+                            <div *ngIf="allform['email'].hasError('required') && allform['email'].touched">
+                                Hãy nhập Email!
+                            </div>
+                            <div *ngIf="allform['email'].hasError('email') && allform['email'].touched">
+                                Email không đúng định dạng!
+                            </div>  
+                            <div *ngIf="allform['email'].hasError('minlength') && allform['email'].touched">
+                                Email tối thiểu 20 kí tự!
+                            </div>                         
+                        </div>
+                        <div class="default-form-box">
+                            <label>Mật Khẩu <span>*</span></label>
+                            <input type="password" class="form-control" formControlName="password" placeholder="Nhập mật khẩu">
+                            <div *ngIf="allform['password'].hasError('required') && allform['password'].touched">
+                                Hãy nhập mật khẩu!
+                            </div>
+                            <div *ngIf="allform['password'].hasError('minlength') && allform['password'].touched">
+                                Mật khẩu tối thiểu 10 kí tự!
+                            </div>                            
+                        </div>
+                        <div class="login_submit">
+                            <button class="btn btn-md btn-black-default-hover mb-4" type="submit" [disabled]="formLogin.invalid">Đăng Nhập </button>
+                            <label class="checkbox-default mb-4" for="offer">
+                                <input type="checkbox" id="offer">
+                                <span>Lưu mật khẩu</span>
+                            </label>
+                            <a routerLink="/client/register">Đăng ký</a>
+                            
+
+                        </div>
+                    </form>
+                    
+                    
+                    
+                </div>
+            </div>
+            <!--login area start-->
+        </div>
+    </div>
+</div> <!-- ...:::: End Customer Login Section :::... -->

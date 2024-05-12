@@ -1,0 +1,74 @@
+<div class="orders">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="box-title">{{ Title }} </h4>
+                </div>
+                <div class="card-body">
+                    <a routerLink="/admin/add-blog">
+                        <button class="btn btn-primary"  >
+                            Thêm
+                            <i class="fa fa-plus-square"></i>
+                        </button> 
+                    </a>
+                </div>
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="serial">STT</th>
+                                    <th >Title </th>
+                                    <th class="avatar">Ảnh</th>
+                                    <th>Nội Dung</th>
+                                    <th>Sửa </th>
+                                    <th>Xóa </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr *ngFor="let all of blogs | paginate: { itemsPerPage: 5, currentPage: p }; let i=index"  class=" pb-0">
+                                    <td class="serial">{{ i+1 }}</td>
+                                    <td class="serial" [innerHTML]=" all.title"></td>
+                                    <td class="avatar">
+                                        <div class="round-img">
+                                            <img [src]="getProductImageUrl(all.image_url)" alt="{{ all.image_url}}" />
+                                            
+                                        </div>
+                                    </td>
+                                    <td [innerHTML]=" all.content"> </td>
+                                    <td>
+                                       <span>
+                                            <a href="/admin/update-blog/{{ all.id}}">
+                                                <button type="button" class="btn btn-warning">Sửa</button>
+                                            </a>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <a href="javascript:void(0)">
+                                                <button type="button" class="btn btn-danger" (click)="onDelete(all.id)">Xóa</button>
+                                            </a>
+                                        </span> 
+                                    </td>
+                                </tr>
+                                
+                                
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="12">
+                                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+        
+    </div>
+</div>

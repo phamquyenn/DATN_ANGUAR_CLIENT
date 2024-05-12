@@ -1,0 +1,106 @@
+<!-- Left Panel -->
+<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="menu-title" *ngIf="!admin">CHÀO MỪNG BẠN </li>
+                <li class="menu-title" *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" routerLink="/admin/dashbroad" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon fa fa-desktop"></i> Trang Chủ
+                    </a>
+                 </li>
+               
+                <li class="menu-title" *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" routerLink="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         Quản Lý 
+                    </a>
+                </li>
+                <li class="nav-item dropdown"  *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon  fa fa-table"></i> Sản Phẩm
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="componentsDropdown">
+                        <a class="dropdown-item" routerLink="/admin/product-admin"><i class="menu-icon fa fa-table"></i> Danh sách sản phẩm</a>
+                        <a class="dropdown-item"  routerLink="/admin/category-admin"><i class="menu-icon fa fa-table"></i> Danh sách loại sản phẩm</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"  *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon  fa fa-table"></i> Đơn Hàng
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="componentsDropdown">
+                        <a class="dropdown-item" routerLink="/admin/order"><i class="menu-icon fa fa-table"></i> Danh Sách Đơn Hàng</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"  *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon  fa fa-table"></i> Khách hàng
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="componentsDropdown">
+                        <a class="dropdown-item" routerLink="/admin/customer"><i class="menu-icon fa fa-table"></i> Danh Sách Khách Hàng</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"  *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon  fa fa-table"></i> Thương Hiệu
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="componentsDropdown">
+                        <a class="dropdown-item" routerLink="/admin/brand-admin"><i class="menu-icon fa fa-table"></i> Danh Sách Thương Hiệu</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"  *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon  fa fa-table"></i> Tin tức
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="componentsDropdown">
+                        <a class="dropdown-item" routerLink="/admin/blog-admin"><i class="menu-icon fa fa-table"></i> Danh Sách Tin Tức</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"  *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon  fa fa-table"></i> Giới Thiệu
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="componentsDropdown">
+                        <a class="dropdown-item" routerLink="/admin/About-us"><i class="menu-icon fa fa-table"></i> Danh Sách Giới Thiệu</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"  *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon  fa fa-table"></i> Ảnh
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="componentsDropdown">
+                        <a class="dropdown-item" routerLink="/admin/UploadImage"><i class="menu-icon fa fa-table"></i> Danh Sách Tất Cả Các Ảnh</a>
+                    </div>
+                </li>
+                
+
+
+                <li class="menu-title" *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" routerLink="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon fa fa-user"></i> Người Dùng
+                    </a>
+                </li>
+                    
+
+                  
+                    <li class="nav-item dropdown"  *ngIf="admin">
+                        <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-sign-in"></i> Tài Khoản
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="componentsDropdown">
+                            <a class="dropdown-item" routerLink="#" (click)="onLogout()"> Đăng Xuất</a>
+                        </div>
+                    </li>
+                
+                    <li  *ngIf="!admin">
+                        <a routerLink="/login-admin" > <i class="fa fa-sign-in" ></i> Đăng Nhập </a>
+                    </li>
+
+
+               
+                
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</aside>
+

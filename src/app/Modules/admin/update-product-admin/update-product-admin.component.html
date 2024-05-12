@@ -1,0 +1,111 @@
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <strong>{{ Title }}</strong> 
+        </div>
+        
+        <div class="card-body card-block">
+            <form  class="form-horizontal" [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="product_name" class=" form-control-label">Tên </label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="product_name" name="product_name" placeholder="Nhập tên sản phẩm" class="form-control"  formControlName="product_name"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="description" class=" form-control-label">Mô tả</label></div>
+                            <div class="col-12 col-md-9">
+                                <ckeditor formControlName="description" [editor]="Editor" rows="9" ></ckeditor>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="select" class=" form-control-label"> Tên Thương Hiệu</label></div>
+                            <div class="col-12 col-md-9">
+                                <select name="select" id="select" class="form-control" formControlName="brand">
+                                    
+                                    <option *ngFor=" let brand  of brands"value="{{ brand.name }}">{{ brand.name }}</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Mã Thương Hiệu </label></div>
+                            <div class="col-12 col-md-9">
+                                <select name="select" id="select" class="form-control" formControlName="brand_id">
+                                    
+                                    <option *ngFor="let brand of brands"value="{{ brand.Brand_id }}">{{ brand.Brand_id }}</option>
+                                    
+                                </select>
+                            </div>
+                        </div> 
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="price" class=" form-control-label">Giá </label></div>
+                            <div class="col-12 col-md-9"><input type="number" id="price" name="price" placeholder="Nhập gia mới" class="form-control"  formControlName="price"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="quantity" class="form-control-label">Số Lượng </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="number" id="quantity" name="quantity" placeholder="Nhập số lượng mới" class="form-control"  formControlName="quantity">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="volume" class="form-control-label">Volume</label></div>
+                            <div class="col-12 col-md-9"><input type="number" id="volume" name="volume" placeholder="Nhập khối lượng (ml)" class="form-control"  formControlName="volume"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="fragrance_family" class=" form-control-label">Hương Đầu </label></div>
+                            <div class="col-12 col-md-9">
+                                <ckeditor formControlName="fragrance_family" [editor]="Editor"  ></ckeditor>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="fragrance_notes" class=" form-control-label">Hương Cuối </label></div>
+                            <div class="col-12 col-md-9">
+                                <ckeditor formControlName="fragrance_notes" [editor]="Editor"  ></ckeditor>
+                            </div>
+                        </div>            
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Chọn Loại Nước Hoa</label></div>
+                            <div class="col-12 col-md-9">
+                                <select name="select" id="select" class="form-control" formControlName="gender">
+                                    <option *ngFor="let loai of category" [value]="loai.category_name">{{ loai.category_name }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Mã Loại</label></div>
+                            <div class="col-12 col-md-9">
+                                <select name="select" id="select" class="form-control" formControlName="category_id">
+                                    <option *ngFor="let loai of category" [value]="loai.category_id">{{ loai.category_id }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="product_image" class="form-control-label">Tập Tin Hình Ảnh</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="file" id="product_image" name="product_image" class="form-control-file" required (change)="onFileChange($event)" enctype="multipart/form-data">
+                                    <img [src]="preview" class="w-50" alt="">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+               
+                
+          
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <input type="submit" class="btn btn-success" value="Gửi">
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</div>
+
+  
+

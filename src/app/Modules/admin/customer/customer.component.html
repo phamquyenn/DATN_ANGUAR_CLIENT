@@ -1,0 +1,67 @@
+<div class="orders">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="box-title">{{ Title }} </h1>
+                </div>
+                <!-- <div class="card-body">
+                    <a routerLink="/admin/add-customer">
+                        <button class="btn btn-primary"  >
+                            Thêm
+                            <i class="fa fa-plus-square"></i>
+                        </button> 
+                    </a>
+                </div> -->
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="serial">STT</th>
+                                    <th class="avatar">Tên </th>
+                                    <th>Địa chỉ</th>
+                                    <th>Phone</th>
+                                    <th>Eamil</th>
+                                    <!-- <th>Sửa </th>
+                                    <th>Xóa </th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr *ngFor="let all of customer | paginate: { itemsPerPage: 5, currentPage: p } ; let i=index"  class=" pb-0">
+                                    <td class="serial">{{ i+1 }}</td>
+                                    <td class="serial">{{ all.name }}</td>
+                                    <td [innerHTML]=" all.address">  </td>
+                                    <td>  <span class="brand">{{ all.phone }}</span> </td>
+                                    <td> <span class="fragrance_family">{{ all.email }}</span> </td>
+                                    <!-- <td>
+                                       <span>
+                                            <a href="/admin/update-customer/{{ all.id}}">
+                                                <button type="button" class="btn btn-warning">Sửa</button>
+                                            </a>
+                                        </span>
+                                    </td>
+                                    <td>
+                                       <span><button type="button" class="btn btn-danger" (click)="onDelete(all.id)">Xóa</button></span> 
+                                    </td> -->
+                                </tr>
+                                
+                                
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="12">
+                                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+        
+    </div>
+</div>

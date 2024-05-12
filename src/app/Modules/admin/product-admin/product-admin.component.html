@@ -1,0 +1,94 @@
+<div class="orders">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="box-title">{{ Title }} </h4>
+                </div>
+                <div class="card-body">
+                    <a routerLink="/admin/product-add">
+                        <button class="btn btn-primary"  >
+                            Thêm
+                            <i class="fa fa-plus-square"></i>
+                        </button> 
+                    </a>
+                    
+                </div>
+               
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="serial">STT</th>
+                                    <th class="avatar">Tên </th>
+                                    <th>Ảnh</th>
+                                    <th>Mô Tả</th>
+                                    <th>Thương Hiệu</th>
+                                    <th>Hương Đầu</th>
+                                    <th>Hương Cuối</th>
+                                    <th>Số Lượng</th>
+                                    <th>Giá</th>
+                                    <th>Loại </th>
+                                    <th>Sửa </th>
+                                    <th>Xóa </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr *ngFor="let all of items | paginate: { itemsPerPage: 10, currentPage: p }"  class=" pb-0">
+                                    <td class="serial">{{ all.product_id }}</td>
+                                    <td class="serial">{{ all.product_name }}</td>
+                                    <!-- <td class="avatar">
+                                        <div class="round-img">
+                                            <a href="#"><img class="rounded-circle" src="assets/images/product/default/home-3/{{ all.product_image }}"  alt=""></a>
+                                           
+                                        </div>
+                                    </td> -->
+                                    <td class="avatar">
+                                        <div class="round-img">
+                                            <img [src]="getProductImageUrl(all.product_image)" alt="{{ all.product_image}}" />
+                                        </div>
+                                    </td>
+                                    <td  [innerHTML]=" all.description">  </td>
+                                    <td>  <span class="brand">{{ all.brand }}</span> </td>
+                                    <td> <span class="fragrance_family" [innerHTML]=" all.fragrance_family"></span> </td>
+                                    <td> <span class="fragrance_family" [innerHTML]=" all.fragrance_notes"></span> </td>
+
+                                    <td><span class="quanlity">{{ all.quantity }}</span></td>
+                                    <td><span class="Price">{{ all.price | number:'1.0-0' }}</span></td>
+                                    <td><span class="gender">{{ all.gender }}</span></td>
+                                    <td>
+                                       <span>
+                                            <a href="/admin/product-update/{{ all.product_id}}">
+                                                <button type="button" class="btn btn-warning">Sửa</button>
+                                            </a>
+                                        </span>
+                                    </td>
+                                    <td>
+                                       <span>
+                                            <a href="javascript:void(0)">
+                                                <button type="button" class="btn btn-danger" (click)="onDelete(all.product_id)">Xóa</button>
+                                            </a>
+                                        </span> 
+                                    </td>
+                                </tr>
+                                
+                                
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="12">
+                                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+        
+    </div>
+</div>

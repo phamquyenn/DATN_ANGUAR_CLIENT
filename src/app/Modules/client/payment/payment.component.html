@@ -1,0 +1,58 @@
+<head>
+    <link rel='stylesheet' href='/assets/stylesheets/jumbotron-narrow.css'>
+    <link rel='stylesheet' href='/assets/stylesheets/bootstrap.min.css'>
+</head>
+<div class="container">
+    <div class="header clearfix">
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation" class="active">
+            <a href="/order/create_payment_url">Tạo mới GD thanh toán</a>
+          </li>
+          <li role="presentation" class="active">
+            <a href="/order/querydr">API truy vấn kết quả thanh toán</a>
+          </li>
+          <li role="presentation" class="active">
+            <a href="/order/refund">API hoàn tiền giao dịch</a>
+          </li>
+        </ul>
+        <h3 class="text-muted">VNPAY DEMO</h3>
+    </div>
+    <div class="table-responsive">
+      <form id="createOrder" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="amount">Số tiền</label>
+          <input class="form-control" id="amount" name="amount" placeholder="Số tiền" value="10000"  formControlName="amount">
+        </div>
+        <div class="form-group">
+          <label>Chọn Phương thức thanh toán:</label>
+          <div class="controls">
+            <label class="radio-inline">
+              <input type="radio" name="bankCode" id="defaultPaymentMethod" value="VNBANK" checked="true" formControlName="bankCode"> Cổng thanh toán VNPAYQR
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="bankCode" id="vnpayqrPaymentMethod" value="VNPAYQR" formControlName="bankCode"> Thanh toán qua ứng dụng hỗ trợ VNPAYQR
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="bankCode" id="vnbankPaymentMethod" value="VPBANK" formControlName="bankCode" > Thanh toán qua ATM-Tài khoản ngân hàng nội địa
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="bankCode" id="intcardPaymentMethod" value="INTCARD" formControlName="bankCode"> Thanh toán qua thẻ quốc tế
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="language">Ngôn ngữ</label>
+          <div class="controls">
+            <label class="radio-inline">
+              <input type="radio" name="language" id="vnLanguage" value="vn" checked="true" formControlName="language"> Tiếng Việt
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="language" id="enLanguage" value="en" formControlName="language"> Tiếng Anh
+            </label>
+          </div>
+        </div>
+        <button class="btn btn-default" id="btnPopup" type="submit">Thanh toán</button>
+      </form>
+    </div>
+    
+  </div>

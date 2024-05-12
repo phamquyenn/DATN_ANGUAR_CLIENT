@@ -1,0 +1,61 @@
+<!-- HEADER -->
+<header id="header" class="header">
+    <div class="top-left">
+        <div class="navbar-header">
+            <a class="navbar-brand" routerLink="/admin/dashbroad"><img src="assets/admin/images/420.png" height="40px" alt="Logo"></a>
+            <a class="navbar-brand hidden" href="./"><img routerLink="/admin/dashbroad" alt="Logo"></a>
+            <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+        </div>
+    </div>
+    <div class="top-right">
+        <div class="header-menu">
+            <div class="header-left">
+                <button class="search-trigger"><i class="fa fa-search"></i></button>
+                <div class="form-inline">
+                    <form class="search-form">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                        <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                    </form>
+                </div>
+
+                <div class="dropdown for-notification">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-bell"></i>
+                        <span class="count bg-danger">1</span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="notification">
+                        <p class="red">Bạn Có 1 thông báo</p>
+
+                        <a class="dropdown-item media" href="#">
+                            <i class="fa fa-check"></i>
+                            <p>Hello </p>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                <div class="dropdown for-message">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-envelope"></i>
+                        <span class="count bg-primary">4</span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="message">
+                        <p class="red">Bạn có 1 email mới</p>
+                        <a class="dropdown-item media" href="#">
+                            <span class="photo media-left"><img alt="avatar" src="assets/admin/images/avatar/1.jpg"></span>
+                            <div class="message media-body">
+                                <span class="name float-left">Thùy Linh</span>
+                                <span class="time float-right">Bây giờ</span>
+                                <p>Yêu Quyền</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            
+              
+        </div>
+    </div>
+</header>
