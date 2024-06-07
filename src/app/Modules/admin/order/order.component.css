@@ -1,0 +1,28 @@
+
+  .badge-complete {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .badge-pending {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  .text-success {
+    color: #28a745;
+    font-weight: bold;
+  }
+  .card-body {
+    padding: 20px;
+    background-color: #f8f9fa; /* Màu nền */
+    border-radius: 10px; /* Bo góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bóng đổ */
+  }
+  
+
+  h2.box-title {
+    color: rgb(10, 10, 10);
+    font-size: 18px;
+    font-weight: 10;
+  }

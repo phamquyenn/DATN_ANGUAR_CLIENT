@@ -1,0 +1,64 @@
+<div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <strong>Send Email</strong> 
+      </div>
+      
+      <div class="card-body card-block">
+        <form [formGroup]="emailForm" (ngSubmit)="sendEmail()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row form-group">
+                <div class="col col-md-3">
+                  <label for="subject" class="form-control-label">Tiêu đề</label>
+                </div>
+                <div class="col-12 col-md-9">
+                  <input type="text" class="form-control" formControlName="subject" name="subject" required>
+                  <div *ngIf="emailForm.get('subject')!.invalid && emailForm.get('subject')!.touched">
+                    <small class="text-danger">Subject is required.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col col-md-3">
+                  <label for="email" class="form-control-label">Email</label>
+                </div>
+                <div class="col-12 col-md-9">
+                  <input type="Email" class="form-control" name="Email" formControlName="Email"  required>
+                  <!-- <div *ngIf="emailForm.get('Email')!.invalid && emailForm.get('Email')!.touched">
+                    <small class="text-danger">Valid email is required.</small>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row form-group">
+                <div class="col col-md-3">
+                  <label class="form-control-label" for="body">Phản hồi</label>
+                </div>
+                <div class="col-12 col-md-9">
+                  <!-- <textarea formControlName="body" rows="5" cols="5" class="form-control" name="body" required></textarea> -->
+                  <ckeditor formControlName="body" [editor]="Editor" rows="9"  ></ckeditor>
+                  
+                  <div *ngIf="emailForm.get('body')!.invalid && emailForm.get('body')!.touched">
+                    <small class="text-danger">Body is required.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-sm">
+              <input type="submit" class="btn btn-success" value="Submit">
+            </button>
+            <a routerLink="/admin/contact">
+              <button type="button" class="btn btn-secondary btn-sm">
+                  <input type="submit" class="btn btn-secondary btn-sm" value="Quay Lại">
+              </button>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

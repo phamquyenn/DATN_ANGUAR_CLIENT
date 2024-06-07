@@ -1,28 +1,6 @@
 
-    <!-- ...:::: Start Breadcrumb Section:::... -->
-    <div class="breadcrumb-section breadcrumb-bg-color--white">
-        <div class="breadcrumb-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h3 class="breadcrumb-title">Thanh Toán</h3>
-                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
-                            <nav aria-label="breadcrumb">
-                                <ul>
-                                    <li><a routerLink="/">Home</a></li>
-                                    <li><a routerLink="/shop">Shop</a></li>
-                                    <li class="active" aria-current="page">Thanh Toán</li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- ...:::: End Breadcrumb Section:::... -->
-
     <!-- ...:::: Start Checkout Section:::... -->
-    <div class="checkout-section">
+    <div class="checkout-section" style="margin-top: 50px;">
         <div class="container">
             <div class="row">
                 
@@ -56,7 +34,7 @@
                                            </td>
                                             <td>{{ order.product_name }} </td>
                                             <td> {{ order.total_quantity }}</td>
-                                            <td>Online</td>
+                                            <td>{{ order.bankcode}}</td>
                                             <td>{{ order.order_date  | date:'dd/MM/yyyy' }}</td>
                                             <td>{{ order.shipAddress }} </td>
                                             <td>{{ order.order_status }}</td>
@@ -81,6 +59,18 @@
                             
                         </form>
                         
+                    </div>
+                </div>
+                <div *ngFor="let order of customerOrder" class="order-status-section">
+                    <div class="order-status">
+                        <div [ngClass]="{'status-confirmed': order.order_status === 'Đã xác nhận', 'status-shipping': order.order_status === 'vận chuyển', 'status-delivered': order.order_status === 'đã giao hàng'}">
+                            <p>Trạng thái đơn hàng:</p>
+                            <p *ngIf="order.order_status === 'Chờ xác nhận'">Chờ xác nhận</p>
+                            <p *ngIf="order.order_status === 'Đã xác nhận'"> Đã Xác nhận</p>
+
+                            <p *ngIf="order.order_status === 'vận chuyển'">Vận chuyển</p>
+                            <p *ngIf="order.order_status === 'đã giao hàng'">Đã giao hàng</p>
+                        </div>
                     </div>
                 </div>
             </div> <!-- Start User Details Checkout Form -->

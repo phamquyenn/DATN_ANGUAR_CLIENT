@@ -1,28 +1,8 @@
 
-    <!-- ...:::: Start Breadcrumb Section:::... -->
-    <div class="breadcrumb-section breadcrumb-bg-color--white">
-        <div class="breadcrumb-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h3 class="breadcrumb-title">Thanh Toán</h3>
-                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
-                            <nav aria-label="breadcrumb">
-                                <ul>
-                                    <li><a routerLink="/">Home</a></li>
-                                    <li><a routerLink="/shop">Shop</a></li>
-                                    <li class="active" aria-current="page">Thanh Toán</li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
 
     <!-- ...:::: Start Checkout Section:::... -->
-    <div class="checkout-section">
+    <div class="checkout-section" style="margin-top: 50px;">
         <div class="container">
             <div class="row">
                 
@@ -111,13 +91,12 @@
                                 <div class="panel-default">
                                     <label class="checkbox-default" for="currencyPaypal" data-bs-toggle="collapse" data-bs-target="#methodPayment">
                                         <input type="checkbox" id="currencyPaypal">
-                                        <span>Thanh Toán Online</span>
+                                        <span>Thanh Toán </span>
                                     </label>
                                     <div id="methodPayment" value="Chọn Phương thức thanh toán" class="collapse" data-parent="#methodPayment">
                                         <select class="form-select" formControlName="method" >
                                             <option value="VNPAY">VNPAY</option>
-                                            <!-- <option  id="MOMO"name="MOMO" formControlName="MOMO">MOMO</option>
-                                            <option  id="COD"name="COD" formControlName="COD"> COD</option> -->
+                                            <option value="COD">COD</option>
                                         </select>
                                     </div>
                                 </div>

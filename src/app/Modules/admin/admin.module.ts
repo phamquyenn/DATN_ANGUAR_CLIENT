@@ -27,7 +27,17 @@ import { UpdateAboutusComponent } from './update-aboutus/update-aboutus.componen
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { OrderComponent } from './order/order.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-
+import { OrderDetailsComponent } from './order-details/order-details.component';
+import { ContactComponent } from './contact/contact.component';
+import { UpdatecontactComponent } from './updatecontact/updatecontact.component';
+import { DetailNewsComponent } from './detail-news/detail-news.component';
+import { AddDetailsNewsComponent } from './add-details-news/add-details-news.component';
+import { UpdateDetailNewsComponent } from './update-detail-news/update-detail-news.component';
+import { AccountComponent } from './account/account.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { FormsModule } from '@angular/forms';
+import { PurchaseOrdersComponent } from './purchase-orders/purchase-orders.component';
+import { PurchaseOrderDetailsComponent } from './purchase-order-details/purchase-order-details.component';
 
 @NgModule({
   declarations: [
@@ -52,14 +62,25 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     AddAboutusComponent,
     UpdateAboutusComponent,
     AboutusComponent,
-    OrderComponent
+    OrderComponent,
+    OrderDetailsComponent,
+    ContactComponent,
+    UpdatecontactComponent,
+    DetailNewsComponent,
+    AddDetailsNewsComponent,
+    UpdateDetailNewsComponent,
+    AccountComponent,
+    InventoryComponent,
+    PurchaseOrdersComponent,
+    PurchaseOrderDetailsComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    CKEditorModule
+    CKEditorModule,
+    FormsModule
 
   ],
 

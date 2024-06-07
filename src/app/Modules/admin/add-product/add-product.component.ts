@@ -34,7 +34,7 @@ export class AddProductComponent implements OnInit{
     gender : new FormControl(''),
     // product_image : new FormControl(''),
     category_id : new FormControl(''),
-    brand_id : new FormControl(''),
+    // brand_id : new FormControl(''),
   })
 
   constructor (private fb: FormBuilder, private add:ProductsService, private router: Router){
@@ -91,7 +91,7 @@ export class AddProductComponent implements OnInit{
     let gender:any = this.profileFrom.value.gender;
     // let product_image:any = this.profileFrom.value.product_image;
     let category_id:any = this.profileFrom.value.category_id;
-    let brand_id:any = this.profileFrom.value.brand_id;
+    // let brand_id:any = this.profileFrom.value.brand_id;
 
     const formData = new FormData();
     formData.append("product_name", product_name);  
@@ -105,7 +105,7 @@ export class AddProductComponent implements OnInit{
     formData.append("gender", gender);  
     formData.append("product_image", this.file, this.file.name);  
     formData.append("category_id", category_id);  
-    formData.append("brand_id", brand_id);  
+    // formData.append("brand_id", brand_id);  
 
     this.add.addProduct(formData).subscribe(data => {
       console.log(data);

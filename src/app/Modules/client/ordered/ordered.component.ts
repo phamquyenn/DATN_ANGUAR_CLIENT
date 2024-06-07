@@ -3,7 +3,7 @@ import { ProductsService } from 'src/app/services/admin/products.service';
 import { OrderService } from 'src/app/services/client/order.service';
 import { UserService } from 'src/app/services/client/user.service';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ordered',
@@ -15,18 +15,27 @@ export class OrderedComponent implements OnInit {
   customerOrder : any[]=[];
   Image: string = '';
   userInfo: any;
+  
   selectedProducts: { [productId: number]: any } = {};
- constructor( private cuts:UserService, private order:OrderService, private image: ProductsService, private router:Router){}
+ constructor( private cuts:UserService,
+   private order:OrderService, 
+   private image: ProductsService, 
+   private router:Router,
+   private route: ActivatedRoute,
+  ){}
 
   ngOnInit(): void {
     this.userInfo = this.cuts.getAccountInfo();
+
     if (this.userInfo) {
       this.customerId = this.userInfo.customer_id; 
       this.getOrderbycustomerId(); 
     } else {
       console.error('Không có thông tin người dùng.');
     }
-    
+
+
+
   }
   getOrderbycustomerId(): void{
       this.order.getCustomerOrders(this.userInfo.customer_id).subscribe( (data) =>{

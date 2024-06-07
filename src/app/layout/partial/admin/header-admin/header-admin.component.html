@@ -30,14 +30,13 @@
                             <i class="fa fa-check"></i>
                             <p>Hello </p>
                         </a>
-                        
                     </div>
                 </div>
 
                 <div class="dropdown for-message">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-envelope"></i>
-                        <span class="count bg-primary">4</span>
+                        <span class="count bg-primary">1</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="message">
                         <p class="red">Bạn có 1 email mới</p>
@@ -51,6 +50,21 @@
                         </a>
 
                     </div>
+                </div>
+            </div>
+            <div class="user-area dropdown float-right" *ngIf="admin">
+                <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="menu-icon fa fa-user"></i> 
+                </a>
+
+                <div class="user-menu dropdown-menu">
+                    <a class="nav-link" routerLink="/admin/account"><i class="fa fa- user"></i> Tài Khoản </a>
+
+                    <a class="nav-link" href="#"><i class="fa fa- user"></i> Thông báo <span class="count">3</span></a>
+
+                    <a class="nav-link" href="#"><i class="fa fa -cog"></i> Cài đặt </a>
+
+                    <a class="nav-link" routerLink="#" (click)="onLogout()"><i class="fa fa-power -off"></i> Đăng xuất </a>
                 </div>
             </div>
 

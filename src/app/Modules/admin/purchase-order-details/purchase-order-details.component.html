@@ -1,0 +1,69 @@
+<div class="orders">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="box-title">{{ Title }} </h4>
+                </div>
+                
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên sản phẩm </th>
+                                    <th class="avatar">Ảnh</th>
+                                    <th>Thương hiệu</th>
+                                    <th >Số Lượng</th>
+                                    <th>Giá Nhập</th>
+                                    <th>Ngày nhập</th>
+                                    <th>Sửa </th>
+                                    <th>Xóa </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr class=" pb-0" *ngFor="let all of detailsPurchase | paginate: { itemsPerPage: 5, currentPage: p } ; let i=index">
+                                    <td class="serial">{{ i+1 }}</td>
+                                    <td class="avatar">
+                                        <div class="round-img">
+                                            <img [src]="getProductImageUrl(all.ProductImage)" alt="{{ all.ProductImage}}" />
+                                        </div>
+                                    </td>
+                                    <td class="serial" [innerHTML]=" all.ProductName"></td>
+                                    <td class="serial">{{all.BrandName }}</td>
+                                    <td class="serial" >{{all.Quantity }}</td>
+                                    <td class="serial" >{{all.ProductPrice }}</td>
+                                    <td >  {{ all.OrderDate | date:'dd/MM/yyyy' }}</td>
+                                    
+                                    <td>
+                                        <span>
+                                            <button type="button" class="btn btn-danger" >Xóa</button>
+                                        </span>
+                                    </td>
+                                    
+                                </tr>
+                                
+                                
+                            </tbody>
+                            <tfoot>
+                                <td>
+                                    <span>
+                                        <a routerLink="/admin/purchase_orders">
+                                            <button type="button" class="btn btn-secondary btn-sm">Quay lại</button>
+                                        </a>
+                                        
+                                    </span>
+                                </td>
+                            </tfoot>
+                           
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+        
+    </div>
+</div>

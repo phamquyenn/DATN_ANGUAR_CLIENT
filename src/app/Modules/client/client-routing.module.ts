@@ -20,6 +20,8 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SuccessComponent } from './success/success.component';
 import { OrderedComponent } from './ordered/ordered.component';
+import { DetailNewComponent } from './detail-new/detail-new.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 const routes: Routes = [
   {
@@ -56,6 +58,16 @@ const routes: Routes = [
     path:'categories/:id',
     component:ProductsListComponent,
     title:'sản phẩm'
+  },
+  {
+    path:'brand/:id',
+    component:ProductsListComponent,
+    title:'sản phẩm'
+  },
+  {
+    path:'detail-news/:id',
+    component:DetailNewComponent,
+    title:'Chi tiết tin tức'
   },
   {
     path:'productDetail/:id',
@@ -96,7 +108,7 @@ const routes: Routes = [
   {
     path:'favorites',
     component:FavoritesComponent,
-    title:'Sản phẩm yêu thihcs'
+    title:'Sản phẩm yêu thích'
   },
   {
     path:'aboutus',
@@ -106,12 +118,17 @@ const routes: Routes = [
   {
     path:'success',
     component:SuccessComponent,
-    title:'Đã mua .'
+    title:'Đã mua '
   },
   {
     path:'order',
     component:OrderedComponent,
-    title:'Đơn hàng.'
+    title:'Đơn hàng'
+  },
+  {
+    path:'order_details/:id/:order_date',
+    component:OrderDetailComponent,
+    title:'Chi tiết đơn hàng theo ngày'
   },
 
 

@@ -34,6 +34,22 @@
                 </li>
                 <li class="nav-item dropdown"  *ngIf="admin">
                     <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon  fa fa-table"></i> Kho
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="componentsDropdown">
+                        <a class="dropdown-item" routerLink="/admin/inventory"><i class="menu-icon fa fa-table"></i> Danh Sách kho hàng</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"  *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon  fa fa-table"></i> Đơn hàng nhập
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="componentsDropdown">
+                        <a class="dropdown-item" routerLink="/admin/purchase_orders"><i class="menu-icon fa fa-table"></i>Danh sách đơn hàng nhập</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"  *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon  fa fa-table"></i> Khách hàng
                     </a>
                     <div class="dropdown-menu" aria-labelledby="componentsDropdown">
@@ -66,6 +82,14 @@
                 </li>
                 <li class="nav-item dropdown"  *ngIf="admin">
                     <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon  fa fa-table"></i> Phản hồi liên hệ
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="componentsDropdown">
+                        <a class="dropdown-item" routerLink="/admin/contact"><i class="menu-icon fa fa-table"></i> Danh Sách liên hệ</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"  *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon  fa fa-table"></i> Ảnh
                     </a>
                     <div class="dropdown-menu" aria-labelledby="componentsDropdown">
@@ -75,26 +99,24 @@
                 
 
 
-                <li class="menu-title" *ngIf="admin">
+                <!-- <li class="menu-title" *ngIf="admin">
                     <a class="nav-link dropdown-toggle" routerLink="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-user"></i> Người Dùng
                     </a>
                 </li>
-                    
-
                   
-                    <li class="nav-item dropdown"  *ngIf="admin">
-                        <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-sign-in"></i> Tài Khoản
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="componentsDropdown">
-                            <a class="dropdown-item" routerLink="#" (click)="onLogout()"> Đăng Xuất</a>
-                        </div>
-                    </li>
+                <li class="nav-item dropdown"  *ngIf="admin">
+                    <a class="nav-link dropdown-toggle" href="#" id="componentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-sign-in"></i> Tài Khoản
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="componentsDropdown">
+                        <a class="dropdown-item" routerLink="#" (click)="onLogout()"> Đăng Xuất</a>
+                    </div>
+                </li>-->
                 
-                    <li  *ngIf="!admin">
-                        <a routerLink="/login-admin" > <i class="fa fa-sign-in" ></i> Đăng Nhập </a>
-                    </li>
+                <li  *ngIf="!admin">
+                    <a routerLink="/login-admin" > <i class="fa fa-sign-in" ></i> Đăng Nhập </a>
+                </li> 
 
 
                

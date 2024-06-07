@@ -10,20 +10,23 @@ import Swal from 'sweetalert2';
 export class OrderComponent implements OnInit {
  allorder: any[] = [];
  p: number=1;
-  showConfirmOrder: boolean=true;
-  showCancelOrder: boolean =false;
+ Title:any;
+ confirmationStatus: boolean[] = [];
 
-  constructor( private all:OrderService){
+
+  constructor( private order:OrderService){
     
   }
   ngOnInit(): void {
+    this.Title=" Danh sách đơn hàng";
     this.loadOrders();
   }
   loadOrders(): void {
    
-    this.all.getOrders().subscribe(
+    this.order.getOrders().subscribe(
       (orders) => {
         this.allorder = orders; 
+        console.log( this.allorder)
       },
       (error) => {
         console.error('Lỗi khi tải đơn hàng:', error);
@@ -34,64 +37,28 @@ export class OrderComponent implements OnInit {
     return `http://localhost:3000/image/getproductimage/${filename}`;
     
   }
-
-  confirmOrder(orderId: string): void {
-    this.all.updateOrderStatus(orderId).subscribe(
-      () => {
-        const orderToUpdate = this.allorder.find(order => order.id === orderId);
-        if (orderToUpdate) {
-          orderToUpdate.order_status = 'Đã xác nhận';
-          this.showConfirmOrder = false; 
-          this.showCancelOrder = true;
-        }
-        Swal.fire({
-          icon: 'success',
-          title: 'Đã xác nhận đơn hàng',
-          text: 'Đơn hàng đã được xác nhận thành công!',
-          confirmButtonText: 'OK'
-        });
+  // Xác nhận đơn hàng
+  confirmOrder(orderId: number, index: number): void {
+    this.order.updateOrderStatus(orderId).subscribe(response => {
+      this.allorder[index].order_status = 'Đã xác nhận';
+      this.confirmationStatus[index] = true; 
+    }, error => {
+      console.error('Lỗi xác nhận đơn hàng', error);
+    });
+  }
+  // Hủy xác nhận
+  cancelConfirmation(orderId: number, index: number): void {
+    this.order.cancelOrderStatus(orderId).subscribe(
+      response => {
+        this.allorder[index].order_status = 'Chưa xác nhận';
+        this.confirmationStatus[index] = false;
+        Swal.fire('Thành công', 'Đơn hàng đã được hủy xác nhận thành công!', 'success');
       },
-      (error) => {
-        console.error('Lỗi khi xác nhận đơn hàng:', error);
-        Swal.fire({
-          icon: 'error',
-          title: 'Lỗi',
-          text: 'Đã xảy ra lỗi khi xác nhận đơn hàng!',
-          confirmButtonText: 'OK'
-        });
+      error => {
+        console.error('Lỗi hủy xác nhận đơn hàng', error);
+        Swal.fire('Lỗi', 'Có lỗi xảy ra khi hủy xác nhận đơn hàng, vui lòng thử lại!', 'error');
       }
     );
   }
-  cancelOrder(orderId: string): void {
-    this.all.cancelOrderStatus(orderId).subscribe(
-      () => {
-        const orderToUpdate = this.allorder.find(order => order.id === orderId);
-        if (orderToUpdate) {
-          orderToUpdate.order_status = 'Đã hủy xác nhận';
-          this.showCancelOrder = false; 
-          this.showConfirmOrder = true; 
-         
-        }
-        console.log('Đã cập nhật trạng thái đơn hàng thành công!');
-       
-        Swal.fire({
-          icon: 'success',
-          title: 'Đã hủy xác nhận đơn hàng',
-          text: 'Đơn hàng đã được hủy xác nhận!',
-          confirmButtonText: 'OK'
-        });
-      },
-      (error) => {
-        
-        console.error('Lỗi khi hủy xác nhận đơn hàng:', error);
-        Swal.fire({
-        icon: 'error',
-        title: 'Lỗi',
-        text: 'Đã xảy ra lỗi khi hủy xác nhận đơn hàng!',
-        confirmButtonText: 'OK'
-      });
-      }
-    );
-  }
-
+  
 }

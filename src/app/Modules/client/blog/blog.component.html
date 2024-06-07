@@ -1,28 +1,37 @@
 
     <!-- Offcanvas Overlay -->
     <div class="offcanvas-overlay"></div>
-
-    <!-- ...:::: Start Breadcrumb Section:::... -->
-    <div class="breadcrumb-section breadcrumb-bg-color--white">
-        <div class="breadcrumb-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h3 class="breadcrumb-title">Tin tức </h3>
-                        <div class="breadcrumb-nav breadcrumb-nav-color--white breadcrumb-nav-hover-color--white">
-                            <nav aria-label="breadcrumb">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="blog-grid-sidebar-left.html">Blog</a></li>
-                                    <li class="active" aria-current="page">Tin Tức</li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+    <div class="hero-slider-section">
+        <!-- Slider main container -->
+        <div class="hero-slider-active swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" id="swiper-wrapper-88828c723d145fdb" aria-live="polite" style="transition: all 0ms ease 0s;">
+                <div class="hero-single-slider-item swiper-slide swiper-slide-duplicate swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="1" role="group" aria-label="1 / 1" style="width: 1349px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
+                    <!-- Hero Slider Image -->
+                    <owl-carousel-o [options]="customSliderOptions">
+                        <!-- Slide 1 -->
+                        <ng-template carouselSlide>
+                          
+                            <div class="hero-slider-bg" >
+                              <img src="assets/images/banner/Blog_title.jpg" alt="">
+                              <div class="caption">Tin Tức</div>
+                            </div>
+                          
+                        </ng-template>
+                       
+                       
+                    </owl-carousel-o>
                 </div>
+               
             </div>
+            <!-- If we need pagination -->
+           
+            <!-- If we need navigation buttons -->
+           
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
         </div>
-    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+    </div> 
+
 
     <!-- ...:::: Start Blog List Section:::... -->
     <div class="blog-section">
@@ -38,7 +47,7 @@
                             <div class="sidebar-content">
                                 <ul *ngFor="let loai of category" class="sidebar-menu">
 
-                                   <li ><a href="#">{{ loai.category_name }}</a></li>   
+                                   <li ><a routerLink="/client/categories/{{ loai.category_id }}">{{ loai.category_name }}</a></li>   
 
                                 </ul>
                             </div>
@@ -48,8 +57,8 @@
                         <div class="sidebar-single-widget" >
                             <h4 class="sidebar-title">Thương Hiệu</h4>
                             <div class="sidebar-content">
-                                <ul *ngFor="let new of brands" class="sidebar-menu">
-                                   <li ><a href="#">{{ new.name }}</a></li>
+                                <ul *ngFor="let new of brands"  class="tag-link">
+                                   <li ><a  routerLink="/client/brand/{{ new.Brand_id }}">{{ new.name }}</a></li>
  
 
                                 </ul>
@@ -61,7 +70,7 @@
                 <div class="col-lg-9">
                     <div class="blog-wrapper">
                         <div  class="row mb-n6">
-                            <div class="col-12 mb-6" *ngFor=" let all of blogs | paginate: { itemsPerPage: 2, currentPage: p }">
+                            <div class="col-12 mb-6" *ngFor=" let all of blogs | paginate: { itemsPerPage: 3, currentPage: p }">
                                 <!-- Start Product Default Single Item -->
                                 
                                 <div class="blog-list blog-list-single-item blog-color--golden" data-aos="fade-up"  data-aos-delay="0">
@@ -77,11 +86,11 @@
                                             <div class="content">
                                                 <ul class="post-meta">
                                                    <li>Đăng bởi : <a href="#" class="author">Phạm Quyền</a></li> 
-                                                   <li>thời gian : <a href="#" class="date">{{ all.date_published }}</a></li> 
+                                                   <li>thời gian : <a href="#" class="date">{{ all.date_published | date:'dd/MM/yyyy' }}</a></li> 
                                                 </ul>
                                                 <h6 class="title"><a href="blog-single-sidebar-left.html" [innerHTML]=" all.title"> </a></h6>
                                                 <p [innerHTML]=" all.content"></p>
-                                                <a href="#" class="read-more-btn icon-space-left">Đọc thêm <span class="icon"><i class="ion-ios-arrow-thin-right"></i></span></a>
+                                                <a routerLink="/client/detail-news/{{ all.details_id }}" class="read-more-btn icon-space-left">Đọc thêm <span class="icon"><i class="ion-ios-arrow-thin-right"></i></span></a>
                                             </div>
                                         </div>
                                     </div>

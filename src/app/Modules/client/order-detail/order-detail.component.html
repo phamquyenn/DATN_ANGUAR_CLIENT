@@ -1,0 +1,65 @@
+
+
+    <!-- ...:::: Start Checkout Section:::... -->
+    <div class="checkout-section" style="margin-top: 50px;">
+        <div class="container">
+            <div class="row">
+                
+            </div>
+            <!-- Start User Details Checkout Form -->
+            <div class="checkout_form" data-aos="fade-up"  data-aos-delay="400">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <form  >
+                            
+                            <h3>Đơn hàng của bạn</h3>
+                            <div class="order_table table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Tên</th>
+                                            <th >Ảnh</th>
+                                            <th>Số lượng</th>
+                                            <th>Ngày Đặt</th>
+                                            <th>Địa Chỉ</th>
+                                            <th>Trạng thái</th>
+                                            
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr  *ngFor="let all of listorder ;let i=index">
+                                            <td class="serial">{{ i+1 }}</td>
+                                            <td>{{ all.product_name }} </td>
+                                            <td>
+                                                <img style="width: 100px;"[src]="getProductImageUrl(all.product_image)" alt="{{all.product_image}}" />
+                                           </td>
+                                            <td> {{ all.total_quantity }}</td>
+                                            <td>{{ all.order_date  | date:'dd/MM/yyyy' }}</td>
+                                            <td>{{ all.shipAddress }} </td>
+                                            <td>{{ all.order_status }}</td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                                
+                            </div>
+                            <div class="payment_method">
+                                <div class="order_button pt-3">
+                                    
+                                    <a class="btn btn-md btn-black-default-hover" routerLink="/client/account" >Quay lại</a>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+                
+            </div> <!-- Start User Details Checkout Form -->
+        </div>
+    </div><!-- ...:::: End Checkout Section:::... -->
+

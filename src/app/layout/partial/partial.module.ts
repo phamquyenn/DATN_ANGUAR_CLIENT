@@ -7,11 +7,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FooterAdminComponent } from './admin/footer-admin/footer-admin.component';
 import { HeaderAdminComponent } from './admin/header-admin/header-admin.component';
 import { TopbaComponent } from './admin/topba/topba.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations:[
         
-    
     HeaderClientComponent,
      FooterClientComponent,
      FooterAdminComponent,
@@ -22,8 +22,9 @@ import { TopbaComponent } from './admin/topba/topba.component';
     imports:[
         CommonModule,
         RouterModule,
-        BrowserModule
-        
+        BrowserModule,
+        ReactiveFormsModule
+       
     ],
     exports:[
         HeaderClientComponent,
@@ -32,9 +33,6 @@ import { TopbaComponent } from './admin/topba/topba.component';
         HeaderAdminComponent,
         TopbaComponent,
         
-
-        
-
     ]
 
 })

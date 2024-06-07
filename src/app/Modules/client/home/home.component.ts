@@ -5,7 +5,9 @@ import { HomeGetDataService } from 'src/app/services/client/product.service';
 import { UserService } from 'src/app/services/client/user.service';
 import Swal from 'sweetalert2';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-
+import { map } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
+import { NewsService } from 'src/app/services/client/news.service';
 
 @Component({
   selector: 'app-home',
@@ -16,24 +18,74 @@ export class HomeComponent {
 
   
 
-  constructor(private Favo:FavoritesService ,private product: HomeGetDataService, private user:UserService) { }
+  constructor(private Favo:FavoritesService, 
+    private product: HomeGetDataService, 
+    private user:UserService,
+    private news:NewsService
+  ) { }
   products: any[] = [];
   brand: any[] = [];
   blog: any[] = [];
   bestsale : any[] = [];
   carts: any = this.product.getcarts();
   islogin : boolean =false;
-  
-
+  productsSale: any[] = [];
+  getnews: any[] = [];
   
   customOptions: OwlOptions = {
     loop: true,
     items:4,
-    margin: 10,
+    margin: 50,
+    autoplay: true,
+    center:true,
+    navText: ['', ''],
+    dots: false,
+    navSpeed: 700,
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
+    
+  };
+  productsOptions: any = {
+    loop: true,
+    items:4,
+    margin: 280,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
     autoplay: true,
     center:true,
     dots: false,
-    navSpeed: 700,
+    navText: ['', ''],
+    navSpeed: 600,
+    autoplayTimeout: 3000,
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
   };
   
   customSliderOptions: any = {
@@ -60,16 +112,29 @@ export class HomeComponent {
       this.products = res[0];
       
     });
+    this.product.getsale().subscribe(res => {
+      this.productsSale = res[0];
+      // console.log('đây là sản phẩm sale',res)
+    });
 
     this.product.getbrand().subscribe(res => {
       this.brand = res;
     });
 
-    this.product.getblog().subscribe(res => {
+    this.product.getblog().pipe(
+      map(res => res.slice(0, 3))  
+    ).subscribe(res => {
       this.blog = res;
     });
+    
     this.product.getbestsale().subscribe(res =>{
       this.bestsale =res[0]
+
+    })
+    // get news
+    this.news.GetLatestNews().subscribe(res =>{
+      this.getnews =res;
+      console.log(this.getnews)
 
     })
   }

@@ -13,7 +13,7 @@ export class OrderService {
   getCustomerOrders(customerId: number): Observable<any> {
     return this.http.get<any>(`${host}/order/customer/${customerId}`);
   }
-
+  // 
   deleteOrder(productId: number): Observable<any> {
     const url = `${host}/order/delete/${productId}`;
     return this.http.delete<any>(url);

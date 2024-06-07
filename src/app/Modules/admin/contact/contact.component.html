@@ -1,0 +1,58 @@
+<div class="orders">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="box-title">{{ Title }} </h4>
+                </div>
+
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="serial">STT</th>
+                                    <th class="avatar">Tên </th>
+                                    <th>Email</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Phone</th>
+                                    <th>Nhân Xét</th>
+                                    <th>Trạng thái</th>
+                                    <th>Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr *ngFor="let all of contact | paginate: { itemsPerPage: 5, currentPage: p } ; let i=index"  class=" pb-0">
+                                    <td class="serial">{{ i+1 }}</td>
+                                    <td class="serial">{{ all.Name }}</td>
+                                    <td> <span >{{ all.Email }}</span> </td>
+                                    <td [innerHTML]=" all.Address">  </td>
+                                    <td> {{ all.PhoneNumber }} </td>
+                                    <td> {{ all.Content }} </td>
+                                    <td>{{all.Status}}</td>
+                                    <td >
+                                        <span >
+                                            <a href="/admin/contact/{{all.ID}}">
+                                                <button type="button" class="btn btn-warning" >Phản hồi</button>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="12">
+                                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+        
+    </div>
+</div>

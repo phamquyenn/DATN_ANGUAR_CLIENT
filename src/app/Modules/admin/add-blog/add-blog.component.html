@@ -10,7 +10,9 @@
                     <div class="col-md-6">
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="title" class=" form-control-label">Title </label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="title" name="title" placeholder="Nhập tên title" class="form-control"  formControlName="title"></div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" id="title" name="title" placeholder="Nhập tên title" class="form-control"  formControlName="title">
+                            </div>
                         </div>
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="image_url" class="form-control-label">File Ảnh</label></div>
@@ -34,6 +36,11 @@
                     <button type="submit" class="btn btn-primary btn-sm">
                         <input type="submit" class="btn btn-success" value="Submit">
                     </button>
+                    <a routerLink="/admin/blog-admin">
+                        <button type="button" class="btn btn-secondary btn-sm">
+                            <input type="submit" class="btn btn-secondary btn-sm" value="Quay Lại">
+                        </button>
+                    </a>
                 </div>
                 
   

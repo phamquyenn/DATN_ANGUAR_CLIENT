@@ -11,19 +11,20 @@ export class HomeGetDataService{
   
     constructor(private httpClient: HttpClient) {}
     // Search 
-    searchProducts(term: string): Observable<any> {
+    searchProducts(term: any): Observable<any> {
         return this.httpClient.get<any>(`${host}/product/search?term=${term}`);
-      }
-    // 
-    getAllDataForSearch(): Observable<any[]> {
-        const productAll$ = this.getproductall(); 
-        const brands$ = this.getbrand(); 
-        return forkJoin([ productAll$, brands$]);
-      }
+      };
+
+ 
     // product
     getnew():Observable<any[]>{
         return this.httpClient.get<any[]>(`${host}/product/new`);
     } 
+    // sale products
+    getsale():Observable<any[]>{
+        return this.httpClient.get<any[]>(`${host}/product/sale`);
+    } 
+    // 
     getproductall():Observable<any[]>{
         return this.httpClient.get<any[]>(`${host}/product/getall`);
     } 
@@ -143,5 +144,12 @@ export class HomeGetDataService{
     setDashbroadComponent(component: any) {
     this.dashbroadComponentSubject.next(component);
   }
-    
+    //   Get product by brand Id
+    getProductbybrandId(brandId: any):Observable<any>{
+        return this.httpClient.get<any[]>(`${host}/product/getproductbybrandId/${brandId}`)
+    }
+    // Tìm kiếm sản phẩm theo đơn giá 
+    searchproductsbyprice():Observable<any>{
+        return this.httpClient.get<any[]>(`${host}/product/search-products-by-price`)
+    }
 }

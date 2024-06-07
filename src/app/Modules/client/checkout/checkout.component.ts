@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/admin/products.service';
 import { HomeGetDataService } from 'src/app/services/client/product.service';
@@ -104,14 +104,27 @@ export class CheckoutComponent implements OnInit{
       payment_method: method
     };
    
-    this.vnpay.createPaymentUrl(paymentData).subscribe(
-      data => {
-        window.location.href = data.vnpUrl;
-      },
-      error => {
-        console.error('Lỗi khi gọi API:', error);
-      }
-    );
+    if (method === 'VNPAY') {
+      this.vnpay.createPaymentUrl(paymentData).subscribe(
+        data => {
+          window.location.href = data.vnpUrl;
+        },
+        error => {
+          console.error('Lỗi khi gọi API:', error);
+        }
+      );
+    } else if (method === 'COD') {
+      this.vnpay.createCodPayment(paymentData).subscribe(
+        data => {
+          
+          Swal.fire('Thanh toán thành công', 'Đơn hàng của bạn đã được đặt thành công', 'success');
+          this.router.navigate(['/client/success']); 
+        },
+        error => {
+          console.error('Lỗi khi gọi API:', error);
+        }
+      );
+    }
   }
 }
 

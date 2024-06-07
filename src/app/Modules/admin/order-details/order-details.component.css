@@ -1,0 +1,54 @@
+.status-confirmed {
+    color: green;
+  }
+  
+  .status-not-confirmed {
+    color: red;
+  }
+  
+  .badge-complete {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .badge-pending {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  .text-success {
+    color: #28a745;
+    font-weight: bold;
+  }
+  .card-body {
+    padding: 20px;
+    background-color: #f8f9fa; /* Màu nền */
+    border-radius: 10px; /* Bo góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bóng đổ */
+  }
+  
+  .box-title {
+    font-size: 18px; /* Kích thước chữ */
+    font-weight: bold; /* Độ đậm chữ */
+    color: #333; /* Màu chữ */
+    margin: 0; /* Xóa margin mặc định */
+  }
+  .form-select {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 10px;
+  }
+  select.form-select option[disabled][selected] {
+    background-color: #f0f0f0; 
+    color: #333; 
+    font-weight: bold; 
+  }
+  h4.box-title {
+    color: rgb(10, 10, 10);
+    font-size: 18px;
+    font-weight: 10;
+  }
+  
+  

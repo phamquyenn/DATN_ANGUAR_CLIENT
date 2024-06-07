@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class ShopComponent {
   constructor( private shop :HomeGetDataService,private Favo:FavoritesService, private user:UserService,private product: HomeGetDataService, private image: ProductsService){ }
+  
   productall: any[]=[];
   category: any[]=[];
   brands: any[]=[];
@@ -23,7 +24,20 @@ export class ShopComponent {
   searchResults: any[]=[];
   isSearchPerformed: boolean = false;
 
+  customSliderOptions: any = {
+    loop: true,
+    items:1,
+    center:true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive: {
+        0: {
+            items: 1
+        },
 
+    }
+  };
 
   ngOnInit(){
     this.allproduct();
@@ -41,6 +55,7 @@ export class ShopComponent {
       
     });
   }
+  // 
   search(): void {
     if (this.searchTerm && this.searchTerm.trim() !== '') {
       this.searchResults = this.productall.filter(product => {
@@ -72,7 +87,6 @@ export class ShopComponent {
 
   getProductImageUrl(filename: string): string {
     return `http://localhost:3000/image/getproductimage/${filename}`;
-    
   }
   // 
   onAddTocart(productdetails: any) {
@@ -130,10 +144,6 @@ export class ShopComponent {
       });
     } 
   } 
-  // Search 
 
-  
-  
-  
 
 }

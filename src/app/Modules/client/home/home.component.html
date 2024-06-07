@@ -111,7 +111,7 @@
 <div class="banner-section section-top-gap-100">
     <div class="banner-wrapper clearfix">
         <!-- Start Banner Single Item -->
-        <a *ngFor="let blog of blog" href="product-details-default.html">
+        <a *ngFor="let blog of blog" routerLink="/client/detail-news/{{ blog.details_id }}">
             <div class="banner-single-item banner-style-7 banner-animation banner-color--green float-left"  data-aos="fade-up"  data-aos-delay="0">
                 <div class="image">
                     <img [src]="getProductImageUrl(blog.image_url)" alt="{{ blog.image_url}}" />
@@ -169,59 +169,59 @@
                             <!-- Additional required wrapper -->
                             <div   class="swiper-wrapper" id="swiper-wrapper-d1a568c87bc71065a" aria-live="polite" style="width: 1240px; transform: translate3d(0px, 0px, 0px);">
                                 <!-- Start Product Default Single Item -->
-                                <div *ngFor="let product of products"  class="product-default-single-item product-color--pink swiper-slide swiper-slide-active" role="group" aria-label="1 / 8" style="width: 250px; margin-right: 30px;" >
-                                    <div class="image-box">
-                                        <a href="/client/productDetail/{{ product.product_id}}" class="image-link">
-                                            <!-- <img src="/assets/images/product/default/home-3/{{ product.product_image }}" alt=""> -->
-                                            <img [src]="getProductImageUrl(product.product_image)" alt="{{ product.product_image}}" />
-                                        </a>
-                                        <div class="tag">
-                                            <span>sale</span>
-                                        </div>
-                                        <div class="action-link">
-                                            <div class="action-link-left" >
-                                                <button type="button"*ngIf="islogin" (click)="onAddTocart(product)">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
-                                                </button>
-                                                <button type="button"*ngIf="!islogin" >
-                                                    <a routerLink="/client/login" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
-                                                </button>
-                                            </div>
-                                            <div class="action-link-right">
-                                                <button type="button" *ngIf="islogin" (click)="onFavorites(product.product_id)">
-                                                    <a ><i class="icon-heart"></i></a>
-                                                </button>
-                                                <a *ngIf="!islogin" routerLink="/client/login" ><i class="icon-heart"></i></a>
+                                <owl-carousel-o [options]="productsOptions">
+                                    <ng-container *ngFor="let product of products">
+                                    <ng-template carouselSlide>
+                                        <div   class="product-default-single-item product-color--pink swiper-slide swiper-slide-active" role="group" aria-label="1 / 8" style="width: 250px; margin-right: 30px;" >
+                                            <div class="image-box">
+                                                <a href="/client/productDetail/{{ product.product_id}}" class="image-link">
+                                                    <!-- <img src="/assets/images/product/default/home-3/{{ product.product_image }}" alt=""> -->
+                                                    <img [src]="getProductImageUrl(product.product_image)" alt="{{ product.product_image}}" style="height: 250px;" />
+                                                </a>
                                                 
-                                               
+                                                <div class="action-link">
+                                                    <div class="action-link-left" >
+                                                        <button type="button"*ngIf="islogin" (click)="onAddTocart(product)">
+                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
+                                                        </button>
+                                                        <button type="button"*ngIf="!islogin" >
+                                                            <a routerLink="/client/login" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
+                                                        </button>
+                                                    </div>
+                                                    <div class="action-link-right">
+                                                        <button type="button" *ngIf="islogin" (click)="onFavorites(product.product_id)">
+                                                            <a ><i class="icon-heart"></i></a>
+                                                        </button>
+                                                        <a *ngIf="!islogin" routerLink="/client/login" ><i class="icon-heart"></i></a>
+                                                        
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="content-left">
+                                                    <h6 class="title"><a href="/client/productDetail/{{ product.product_id}}">{{ product.product_name }}</a></h6>
+                                                    <ul class="review-star">
+                                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                                        <li class="empty"><i class="ion-android-star"></i></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="content-right">
+                                                    <span class="price">{{ product.price | number:'1.0-0'}} vnd</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="content">
-                                        <div class="content-left">
-                                            <h6 class="title"><a href="/client/productDetail/{{ product.product_id}}">{{ product.product_name }}</a></h6>
-                                            <ul class="review-star">
-                                                <li class="fill"><i class="ion-android-star"></i></li>
-                                                <li class="fill"><i class="ion-android-star"></i></li>
-                                                <li class="fill"><i class="ion-android-star"></i></li>
-                                                <li class="fill"><i class="ion-android-star"></i></li>
-                                                <li class="empty"><i class="ion-android-star"></i></li>
-                                            </ul>
-                                        </div>
-                                        <div class="content-right">
-                                            <span class="price">{{ product.price | number:'1.0-0'}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            
+                                    </ng-template>
+                                    </ng-container>
+                                </owl-carousel-o>
+                                
                                 <!-- End Product Default Single Item -->
-
                             </div>
                             
                         </div>
-                        <!-- If we need navigation buttons -->
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
                     </div>
                 </div>
             </div>
@@ -258,66 +258,162 @@
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper" id="swiper-wrapper-1063cd8a58aafe67c" aria-live="polite" style="width: 1240; transform: translate3d(0px, 0px, 0px);">
                                 <!-- Start Product Default Single Item -->
-                                <div *ngFor=" let all of bestsale" class="product-default-single-item product-color--pink swiper-slide swiper-slide-active" role="group" aria-label="1 / 8" style="width: 245px; margin-right: 30px;">
-                                    <div class="image-box">
-                                        <a href="/client/productDetail/{{ all.product_id}}" class="image-link">
-                                            <!-- <img src="/assets/images/product/default/home-3/{{ all.product_image }}" alt=""> -->
-                                            <img [src]="getProductImageUrl(all.product_image)" alt="{{ all.product_image}}" />
-        
-                                        </a>
-                                        <div class="tag">
-                                            <span>sale</span>
-                                        </div>
-                                        <div class="action-link">
-                                            <div class="action-link-left" >
-                                                <button type="button"*ngIf="islogin" (click)="onAddTocart(all)">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
-                                                </button>
-                                                <button type="button"*ngIf="!islogin" >
-                                                    <a routerLink="/client/login" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
-                                                </button>
-                                            </div>
-                                            <div class="action-link-right">
-                                                <button type="button" *ngIf="islogin" (click)="onFavorites(all.product_id)">
-                                                    <a ><i class="icon-heart"></i></a>
-                                                </button>
-                                                <a *ngIf="!islogin" routerLink="/client/login" ><i class="icon-heart"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <div class="content-left">
-                                            <h6 class="title"><a href="/client/productDetail/{{ all.product_id}}">{{ all.product_name }}</a></h6>
-                                            <ul class="review-star">
-                                                <li class="fill"><i class="ion-android-star"></i></li>
-                                                <li class="fill"><i class="ion-android-star"></i></li>
-                                                <li class="fill"><i class="ion-android-star"></i></li>
-                                                <li class="fill"><i class="ion-android-star"></i></li>
-                                                <li class="empty"><i class="ion-android-star"></i></li>
-                                            </ul>
-                                        </div>
-                                        <div class="content-right">
-                                            <span class="price">{{ all.price | number:'1.0-0'}} vnd</span>
-                                        </div>
+                                <owl-carousel-o [options]="productsOptions">
 
-                                    </div>
-                                </div>
+                                    <ng-container *ngFor=" let all of bestsale">
+                                    <ng-template carouselSlide>
+                                        <div  class="product-default-single-item product-color--pink swiper-slide swiper-slide-active" role="group" aria-label="1 / 4" style="width: 245px; margin-right: 30px;">
+                                            <div class="image-box">
+                                                <a href="/client/productDetail/{{ all.product_id}}" class="image-link">
+                                                    <!-- <img src="/assets/images/product/default/home-3/{{ all.product_image }}" alt=""> -->
+                                                    <img [src]="getProductImageUrl(all.product_image)" alt="{{ all.product_image}}" />
+                
+                                                </a>
+                                                <div class="tag">
+                                                    <span>sale</span>
+                                                </div>
+                                                <div class="action-link">
+                                                    <div class="action-link-left" >
+                                                        <button type="button"*ngIf="islogin" (click)="onAddTocart(all)">
+                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
+                                                        </button>
+                                                        <button type="button"*ngIf="!islogin" >
+                                                            <a routerLink="/client/login" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
+                                                        </button>
+                                                    </div>
+                                                    <div class="action-link-right">
+                                                        <button type="button" *ngIf="islogin" (click)="onFavorites(all.product_id)">
+                                                            <a ><i class="icon-heart"></i></a>
+                                                        </button>
+                                                        <a *ngIf="!islogin" routerLink="/client/login" ><i class="icon-heart"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="content-left">
+                                                    <h6 class="title"><a href="/client/productDetail/{{ all.product_id}}">{{ all.product_name }}</a></h6>
+                                                    <ul class="review-star">
+                                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                                        <li class="empty"><i class="ion-android-star"></i></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="content-right">
+                                                    <span class="price">{{ all.price | number:'1.0-0'}} vnd</span>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                    </ng-container>
+                                
+                                </owl-carousel-o>
+                                
                                 
 
                             </div>
                             
                         </div>
-                        <!-- If we need navigation buttons -->
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
+                        
                     </div>
+                    
+                    
                 </div>
             </div>
         </div>
     </div>
 </div> 
 <!-- End Product Default Slider Section -->
-
+<div class="product-default-slider-section section-top-gap-100 section-fluid">
+    <!-- Start Section Content Text Area -->
+    <div class="section-title-wrapper"  data-aos="fade-up"  data-aos-delay="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-content-gap">
+                        <div class="secton-content">
+                            <h3  class="section-title">Sản phẩm giảm giá</h3>
+                            <p>Đặt hàng ngay để nhận ưu đãi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Start Section Content Text Area -->
+    <div class="product-wrapper aos-init aos-animate"  data-aos="fade-up"  data-aos-delay="200">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div  class="product-slider-default-2rows default-slider-nav-arrow" >
+                        <!-- Slider main container -->
+                        <div class="swiper-container product-default-slider-4grid-2row swiper-container-initialized swiper-container-horizontal swiper-container-multirow">
+                            <!-- Additional required wrapper -->
+                            <div   class="swiper-wrapper" id="swiper-wrapper-d1a568c87bc71065a" aria-live="polite" style="width: 1240px; transform: translate3d(0px, 0px, 0px);">
+                                <!-- Start Product Default Single Item -->
+                                <owl-carousel-o [options]="productsOptions">
+                                    <ng-container *ngFor="let product of productsSale">
+                                    <ng-template carouselSlide>
+                                        <div   class="product-default-single-item product-color--pink swiper-slide swiper-slide-active" role="group" aria-label="1 / 8" style="width: 250px; margin-right: 30px;" >
+                                            <div class="image-box">
+                                                <a href="/client/productDetail/{{ product.product_id}}" class="image-link">
+                                                    <!-- <img src="/assets/images/product/default/home-3/{{ product.product_image }}" alt=""> -->
+                                                    <img [src]="getProductImageUrl(product.product_image)" alt="{{ product.product_image}}" />
+                                                </a>
+                                                <div class="tag">
+                                                    <span>sale</span>
+                                                </div>
+                                                <div class="action-link">
+                                                    <div class="action-link-left" >
+                                                        <button type="button"*ngIf="islogin" (click)="onAddTocart(product)">
+                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
+                                                        </button>
+                                                        <button type="button"*ngIf="!islogin" >
+                                                            <a routerLink="/client/login" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to cart</a>
+                                                        </button>
+                                                    </div>
+                                                    <div class="action-link-right">
+                                                        <button type="button" *ngIf="islogin" (click)="onFavorites(product.product_id)">
+                                                            <a ><i class="icon-heart"></i></a>
+                                                        </button>
+                                                        <a *ngIf="!islogin" routerLink="/client/login" ><i class="icon-heart"></i></a>
+                                                        
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="content-left">
+                                                    <h6 class="title"><a href="/client/productDetail/{{ product.product_id}}">{{ product.product_name }}</a></h6>
+                                                    <ul class="review-star">
+                                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                                        <li class="fill"><i class="ion-android-star"></i></li>
+                                                        <li class="empty"><i class="ion-android-star"></i></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="content-right">
+                                                    <span class="price">{{ product.price | number:'1.0-0'}} vnd</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                    </ng-container>
+                                </owl-carousel-o>
+                                
+                                <!-- End Product Default Single Item -->
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
 <!-- Start Blog Slider Section -->
 <div class="blog-default-slider-section section-top-gap-100 section-fluid">
     <!-- Start Section Content Text Area -->
@@ -346,20 +442,20 @@
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper" id="swiper-wrapper-beefc858c94bab9f" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
                                 <!-- Start Product Default Single Item -->
-                                <div *ngFor="let tintuc of blog"class="blog-default-single-item blog-color--pink swiper-slide swiper-slide-active" role="group" aria-label="1 / 6" style="width: 350px; margin-right: 30px;">
+                                <div *ngFor="let tintuc of getnews" class="blog-default-single-item blog-color--pink swiper-slide swiper-slide-active" role="group" aria-label="1 / 6" style="width: 350px; margin-right: 30px;">
                                     <div class="image-box">
-                                        <a href="blog-single-sidebar-left.html" class="image-link">
+                                        <a routerLink="/client/detail-news/{{ tintuc.id }}" class="image-link">
                                             <!-- <img class="img-fluid" src="/assets/images/banner/{{ tintuc.image_url }}" alt=""> -->
-                                            <img [src]="getProductImageUrl(tintuc.image_url)" alt="{{ tintuc.image_url}}" />
+                                            <img [src]="getProductImageUrl(tintuc.image_url)" alt="{{ tintuc.image_url}}" style="height: 450px; width:350px ;"/>
 
                                         </a>
                                     </div>
                                     <div class="content">
-                                        <h6 class="title"><a href="blog-single-sidebar-left.html"> {{ tintuc.title }}</a></h6>
+                                        <h6 class="title"><a routerLink="/client/detail-news/{{ tintuc.id }}" [innerHTML]=" tintuc.title "> </a></h6>
                                         <div class="inner">
-                                            <a href="blog-single-sidebar-left.html" class="read-more-btn icon-space-left">ĐỌC THÊM <span><i class="ion-ios-arrow-thin-right"></i></span></a>
+                                            <a routerLink="/client/detail-news/{{ tintuc.id }}" class="read-more-btn icon-space-left">ĐỌC THÊM <span><i class="ion-ios-arrow-thin-right"></i></span></a>
                                             <div class="post-meta">
-                                                <a href="#" class="date"> {{ tintuc.date_published }}</a>
+                                                <a href="#" class="date"> {{ tintuc.date_published  | date:'dd/MM/yyyy'}}</a>
                                             </div>
                                         </div>
                                     </div>

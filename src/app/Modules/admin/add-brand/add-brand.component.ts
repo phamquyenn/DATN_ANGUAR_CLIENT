@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { BrandService } from 'src/app/services/admin/brand.service';
 import Swal from 'sweetalert2';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import * as CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
+
 
 
 @Component({

@@ -17,20 +17,40 @@ import { FavoritesService } from 'src/app/services/client/favorites.service';
 export class ProductsListComponent implements OnInit {
   id: any;
   productall: any[] = [];
+  productallSearch: any[] = [];
   category: any[] = [];
   brands: any[] = [];
   carts: any = this.dataService.getcarts();
   p: number=1;
   pageSize: number = 10;
   productImage : string= '';
+  getproductbybrandId: any[] = [];
+  getproductbycategories : any[] = [];
+  searchTerm: any;
+  searchResults: any[]=[];
+  isSearchPerformed: boolean = false;
 
+  customSliderOptions: any = {
+    loop: true,
+    items:1,
+    center:true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive: {
+        0: {
+            items: 1
+        },
+  
+    }
+  };
   constructor(private active: ActivatedRoute,private Favo:FavoritesService, private user:UserService,private dataService: HomeGetDataService,private image: ProductsService) { }
 
   ngOnInit(): void {
     this.dataService.getproductall().subscribe(res=>{
-      
       this.productall =res;
-      console.log(this.productall)
+      this.search();
+      // console.log(this.productall)
     })
     this.dataService.getcategories().subscribe(res => {
       this.category = res;
@@ -44,11 +64,40 @@ export class ProductsListComponent implements OnInit {
     this.id = this.active.paramMap.subscribe((query: any ) =>{
       this.id =query.get('id');
 
+      this.dataService.getProductbybrandId(this.id).subscribe(res => {
+        this.getproductbybrandId = res;
+        this.mergeProducts();
+        
+      });
+      
       this.dataService.getproductsbycategoriesID(this.id).subscribe(res => {
-        this.productall = res;
+        this.getproductbycategories = res;
+        this.mergeProducts();
         
       });
     })
+    this.search();
+  }
+  mergeProducts() {
+    this.productall = [...this.getproductbybrandId, ...this.getproductbycategories];
+    this.search(); 
+  }
+
+  search(): void {
+    if (this.searchTerm && this.searchTerm.trim() !== '') {
+      const searchTermLower = this.searchTerm.toLowerCase();
+      this.searchResults = this.productall.filter(product => 
+        product.product_name.toLowerCase().includes(searchTermLower) ||
+        (product.category_name && product.category_name.toLowerCase().includes(searchTermLower)) ||
+        (product.brand_name && product.brand_name.toLowerCase().includes(searchTermLower))
+      );
+    } else {
+      this.searchResults = this.productall; 
+    }
+  }
+  performSearch(): void {
+    this.isSearchPerformed = true;
+    this.search();
   }
   loadProductImage(filename: any) {
     this.image.getProductImage(filename).subscribe(

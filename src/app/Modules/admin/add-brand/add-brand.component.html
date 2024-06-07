@@ -12,12 +12,11 @@
                             <div class="col col-md-3"><label for="name" class=" form-control-label">name </label></div>
                             <div class="col-12 col-md-9"><input type="text" id="name" name="name" placeholder="Nhập tên name" class="form-control"  formControlName="name"></div>
                         </div>
+                        
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="address" class=" form-control-label">address</label></div>
                             <div class="col-12 col-md-9">
-                                <textarea name="address" id="address">
-                                    <ckeditor  [editor]="Editor"  formControlName="address"> </ckeditor>
-                                </textarea>
+                                <ckeditor formControlName="address" [editor]="Editor"  ></ckeditor>
                             </div>
                         </div>
                         <div class="row form-group">
@@ -49,6 +48,11 @@
                     <button type="submit" class="btn btn-primary btn-sm">
                         <input type="submit" class="btn btn-success" value="Submit">
                     </button>
+                    <a routerLink="/admin/brand-admin">
+                        <button type="button" class="btn btn-secondary btn-sm">
+                            <input type="submit" class="btn btn-secondary btn-sm" value="Quay Lại">
+                        </button>
+                    </a>
                 </div>
                 
   

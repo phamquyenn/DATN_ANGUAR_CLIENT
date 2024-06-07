@@ -1,24 +1,35 @@
-    <!-- ...:::: Start Breadcrumb Section:::... -->
-    <div class="breadcrumb-section breadcrumb-bg-color--white">
-        <div class="breadcrumb-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h3 class="breadcrumb-title">Giới Thiệu</h3>
-                        <div class="breadcrumb-nav breadcrumb-nav-color--white breadcrumb-nav-hover-color--white">
-                            <nav aria-label="breadcrumb">
-                                <ul>
-                                    <li><a routerLink="client/Home">Trang chủ</a></li>
-                                    <li class="active" aria-current="page">Giới Thiệu</li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- ...:::: End Breadcrumb Section:::... -->
 
+    <!-- Offcanvas Overlay -->
+    <div class="offcanvas-overlay"></div>
+    <div class="hero-slider-section">
+        <!-- Slider main container -->
+        <div class="hero-slider-active swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" id="swiper-wrapper-88828c723d145fdb" aria-live="polite" style="transition: all 0ms ease 0s;">
+                <div class="hero-single-slider-item swiper-slide swiper-slide-duplicate swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="1" role="group" aria-label="1 / 1" style="width: 1349px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
+                    <!-- Hero Slider Image -->
+                    <owl-carousel-o [options]="customSliderOptions">
+                        <!-- Slide 1 -->
+                        <ng-template carouselSlide>
+                          
+                            <div class="hero-slider-bg" >
+                              <img src="assets/images/banner/Blog_title.jpg" alt="">
+                              <div class="caption">Giới Thiệu</div>
+                            </div>
+                          
+                        </ng-template>
+                        
+                      </owl-carousel-o>
+                </div>
+               
+            </div>
+            <!-- If we need pagination -->
+           
+            <!-- If we need navigation buttons -->
+           
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+    </div> 
     <!-- Start About Top -->
     <div class="about-top">
         <div class="container">
@@ -146,36 +157,6 @@
             </div>
         </div>
     </div>
-    <!-- End Service Section -->
-    <div class="company-logo-section section-top-gap-100 section-fluid">
-        <div class="company-logo-wrapper" data-aos="fade-up"  data-aos-delay="0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="company-logo-slider default-slider-nav-arrow">
     
-                            
-                            <owl-carousel-o [options]="customOptions">
-    
-                                <ng-container *ngFor="let b of brands">
-                                <ng-template carouselSlide>
-                                    <div class="company-logo-single-item" role="group" aria-label="1 / 8" style="width: 167.143px;">
-                                    <div class="image">
-                                        <a routerLink=""> <img [src]="getImageUrlBrand(b.brand_image)" alt="{{ b.brand_image}}" /></a>
-                                    </div>
-                                    </div>
-                                </ng-template>
-                                </ng-container>
-                            
-                            </owl-carousel-o>
-                            
-                            <!-- If we need navigation buttons -->
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
  

@@ -12,7 +12,7 @@
                      <ul class="footer-nav">
                          <li><a href="#">Thông tin giao hàng</a></li>
                          <li><a href="#">Điều khoản và điều kiện</a></li>
-                         <li><a href="contact-us.html">Liên hệ</a></li>
+                         <li><a routerLink="/client/contact" >Liên hệ</a></li>
                          <li><a href="#">Trả lại</a></li>
                      </ul>
                  </div>
@@ -23,11 +23,11 @@
                  <div class="footer-widget-single-item footer-widget-color--pink" data-aos="fade-up"  data-aos-delay="200">
                      <h5 class="title">TÀI KHOẢN CỦA TÔI</h5>
                      <ul class="footer-nav"> 
-                         <li><a href="my-account.html">Tài khoản của tôi</a></li>
-                         <li><a href="wishlist.html">Danh sách yêu thích</a></li>
+                         <li><a routerLink="/client/account">Tài khoản của tôi</a></li>
+                         <li><a routerLink="client/favorites">Danh sách yêu thích</a></li>
                          <li><a href="privacy-policy.html">Chính sách bảo mật</a></li>
                          <li><a href="faq.html">Câu hỏi thường gặp</a></li>
-                         <li><a href="#">lịch sử đơn hàng</a></li>
+                         <li><a  routerLink="/client/account">Thông tin đơn hàng</a></li>
                      </ul>
                  </div>
                    <!-- End Footer Single Item -->
@@ -46,9 +46,9 @@
              <div class="col-lg-3 col-sm-6 mb-6">
                  <!-- Start Footer Single Item -->
                  <div class="footer-widget-single-item footer-widget-color--pink" data-aos="fade-up"  data-aos-delay="600">
-                     <h5 class="title">Về Chúng Tôi</h5>
+                     <h5 class="title">{{ Abouts[0].name }}</h5>
                      <div class="footer-about">
-                         <p>Chúng tôi là một nhóm gồm các nhà thiết kế và phát triển tạo ra Magento, Prestashop, Opencart chất lượng cao.</p>
+                         <p [innerHTML]=" Abouts[0].description"></p>
                          
                          <address>
                               <span>Địa chỉ: Cẩm Giàng Hải Dương </span> 

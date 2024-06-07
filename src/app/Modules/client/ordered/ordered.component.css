@@ -1,0 +1,22 @@
+.order-status {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.status-confirmed {
+    background-color: #e7f3fe;
+    color: #31708f;
+}
+
+.status-shipping {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-delivered {
+    background-color: #d4edda;
+    color: #155724;
+}

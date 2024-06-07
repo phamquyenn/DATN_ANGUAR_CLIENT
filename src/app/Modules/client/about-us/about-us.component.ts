@@ -17,14 +17,20 @@ export class AboutUsComponent {
   blogImage: string ='';
   brands:  any[] = [];
 // 
-customOptions: OwlOptions = {
+
+customSliderOptions: any = {
   loop: true,
-  items:4,
-  margin: 10,
-  autoplay: true,
+  items:1,
   center:true,
-  dots: false,
-  navSpeed: 700,
+  autoplay: true,
+  autoplayTimeout: 3000,
+  autoplayHoverPause: true,
+  responsive: {
+      0: {
+          items: 1
+      },
+
+  }
 };
 
 // 

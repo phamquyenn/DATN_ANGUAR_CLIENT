@@ -9,7 +9,7 @@
                             <!-- Start Header Logo -->
                             <div class="header-logo">
                                 <div class="logo">
-                                    <a routerLink="/"><img src="assets/images/logo/420.png" alt=""></a>
+                                    <a routerLink="/"><img src="assets/images/logo/420.png" alt="" style=" border-radius: 10px;"></a>
                                 </div>
                             </div>
                             <!-- End Header Logo -->
@@ -31,7 +31,7 @@
                                                         <a href="#" class="mega-menu-item-title">Sản phẩm  </a>
                                                         <ul class="mega-menu-sub">
                                                             <li ><a routerLink="/client/shop">Tất cả sản phẩm</a></li>
-                                                            <li *ngIf="account"><a  routerLink="/client/shop">Sản phẩm yêu thích</a></li>
+                                                            <li *ngIf="account"><a  routerLink="client/favorites">Sản phẩm yêu thích</a></li>
 
                                                         </ul>
                                                     </li>
@@ -127,12 +127,11 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form>
-                                                        <input #searchInput type="search" class="form-control" placeholder="Tìm kiếm nước hoa" (input)="onSearchInputChange()">
+                                                    <form [formGroup]="searchForm">
+                                                        <input #searchInput type="search" class="form-control" placeholder="Tìm kiếm nước hoa" formControlName="term">
+                                                        <br>
+                                                        <button type="button" class="btn btn-md btn-black-default-hover" (click)="search()">Tìm Kiếm</button>
                                                     </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-md btn-black-default-hover" (click)="search(searchInput.value)">Tìm Kiếm</button>
                                                 </div>
                                             </div>
                                         </div>

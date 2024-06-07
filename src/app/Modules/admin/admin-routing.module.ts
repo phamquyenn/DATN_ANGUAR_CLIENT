@@ -23,6 +23,16 @@ import { AddAboutusComponent } from './add-aboutus/add-aboutus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { UpdateAboutusComponent } from './update-aboutus/update-aboutus.component';
 import { OrderComponent } from './order/order.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
+import { UpdatecontactComponent } from './updatecontact/updatecontact.component';
+import { ContactComponent } from './contact/contact.component';
+import { DetailNewsComponent } from './detail-news/detail-news.component';
+import { UpdateDetailNewsComponent } from './update-detail-news/update-detail-news.component';
+import { AddDetailsNewsComponent } from './add-details-news/add-details-news.component';
+import { AccountComponent } from './account/account.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { PurchaseOrdersComponent } from './purchase-orders/purchase-orders.component';
+import { PurchaseOrderDetailsComponent } from './purchase-order-details/purchase-order-details.component';
 
 
 
@@ -118,6 +128,53 @@ const routes: Routes = [
   {
     path:'order',
     component:OrderComponent
+  },
+  {
+    path:'order_details/:id/:order_date',
+    component:OrderDetailsComponent,
+  },
+  // details news
+
+  {
+    path:'detail_new/:id',
+    component:DetailNewsComponent,
+  },
+  {
+    path:'add_detail_new',
+    component:AddDetailsNewsComponent,
+  },
+  {
+    path:'account',
+    component:AccountComponent,
+  },
+  {
+    path:'update_detail_new/:id',
+    component:UpdateDetailNewsComponent,
+  },
+  
+  // Contact
+  {
+    path:'contact',
+    component:ContactComponent
+  },
+  {
+    path:'contact/:id',
+    component:UpdatecontactComponent
+  },
+  // inventory
+  {
+    path:'inventory',
+    component:InventoryComponent
+  },
+  // purchase_orders
+  {
+    path:'purchase_orders',
+    component:PurchaseOrdersComponent
+  },
+  //  purchase_order_details
+  {
+    path:'purchase_order_details/:id',
+    component:PurchaseOrderDetailsComponent
   },
 ];
 

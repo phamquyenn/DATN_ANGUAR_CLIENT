@@ -3,59 +3,61 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="box-title"> </h4>
+                    <h2 class="box-title">{{ Title }} </h2>
                 </div>
-                <div class="card-body">
+                <!-- <div class="card-body">
                     <a routerLink="/admin/add-customer">
                         <button class="btn btn-primary"  >
                             Thêm
                             <i class="fa fa-plus-square"></i>
                         </button> 
                     </a>
-                </div>
-                <div class="card-body--">
+                </div> -->
+                <div class="card-body">
                     <div class="table-stats order-table ov-h">
                         <table class="table ">
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Sản phẩm</th>
-                                    <th>Ảnh</th>
-                                    <th>Tên khách hàng </th>
-                                    <th>Số Điện Thoại</th>
-                                    <th>Eamil</th>
+                                    <!-- <th>Sản phẩm</th>
+                                    <th>Ảnh</th> -->
+                                    <!-- <th>khách Hàng </th> -->
                                     <th>Ngày đặt</th>
-                                    <th>Địa chỉ nhận hàng</th>
                                     <th>Tiền</th>
                                     <th>Trạng thái </th>
-                                    <th>Chức năng </th>
+                                    <!-- <th>Chức năng</th> -->
+                                    <th>Chi tiết</th>
+
                                 </tr>
                             </thead>
                             <tbody>
                                 
-                                <tr  class=" pb-0" *ngFor="let all of allorder| paginate: { itemsPerPage: 5, currentPage: p } ; let i=index">
+                                <tr  class=" pb-0" *ngFor="let all of allorder| paginate: { itemsPerPage: 20, currentPage: p } ; let i=index">
                                     <td class="serial">{{ i+1 }}</td>
-                                    <td>  <span class="brand">{{ all.product_name }}</span> </td>
-                                    <td class="avatar pb-0">
-                                        <div class="round-img">
-                                            <a href="#">
-                                                <img [src]="getProductImageUrl(all.product_image)" alt="{{ all.product_image}}" />
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td >{{ all.customer_name }}</td>
-                                    <td >{{ all.customer_phone }}</td>
-                                    <td> {{ all.customer_email }} </td>
+                                    
+
+                                    <!-- <td> {{ all.customer_name }} </td> -->
                                     <td> <span class="fragrance_family">{{ all.order_date  | date:'dd/MM/yyyy' }}</span> </td>
-                                    <td> <span class="fragrance_family">{{ all.shipAddress }}</span> </td>
-                                    <td> <span class="fragrance_family">{{ all.price | number:'1.0-0' }}vnd</span> </td>
+                                    <td> <span class="fragrance_family">{{ all.total_amount | number:'1.0-0' }}vnd</span> </td>
                                     <td>
-                                        <span class="fragrance_family">{{ all.order_status }}</span>
-                                    </td>   
-                                    <td> 
-                                        <button type="button" *ngIf="showConfirmOrder" class="badge badge-complete" (click)="confirmOrder(all.order_id)">Xác nhận</button>
-                                        <button  type="button"  *ngIf="showCancelOrder" class="badge badge-pending" (click)="cancelOrder(all.order_id)">Hủy</button>
-                                    </td>          
+                                        <span Class="badge badge-complete">{{ all.order_status }}</span>
+                                    </td>  
+                                    <td>
+                                        <span>
+                                            <a href="/admin/order_details/{{ all.id }}/{{ all.order_date | date:'yyyy-MM-dd'  }}">
+                                                <button type="button" class="badge badge-complete">Xem</button>
+                                            </a>
+                                        </span>
+                                    </td> 
+                                    <!-- <td>
+                                        <span>
+                                            <button type="button" class="btn btn-success" (click)="confirmOrder(all.id, i)" *ngIf="all.order_status !== 'Đã xác nhận'">Xác nhận</button>
+                                            <button type="button" class="btn btn-danger" (click)="cancelConfirmation(all.id, i)" *ngIf="all.order_status === 'Đã xác nhận'">Hủy xác nhận</button>
+                                        </span>
+
+                                    </td> -->
+                                      
+                                          
                                                            
                                 </tr>
                                 

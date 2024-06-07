@@ -14,6 +14,11 @@ export class ProductsService {
   getproductall():Observable<any[]>{
       return this.httpclient.get<any[]>(`${host}/product/getall`);
     } 
+  // Tổng kho
+  getInventory():Observable<any[]>{
+    return this.httpclient.get<any[]>(`${host}/inventory/tinh-tong-so-luong`);
+  } 
+  
   // GET ONCE PRODUCT
   getonceProduct(productId: any):Observable<any>{
       return this.httpclient.get<any[]>(`${host}/product/getonce/${productId}`)

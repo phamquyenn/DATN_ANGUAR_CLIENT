@@ -17,7 +17,7 @@ export class ProductAdminComponent implements OnInit {
     items: any[] = []; 
     pageSize: number = 10;
     productImage: string = '';
-    
+    totalproduct: number = 0;
 
     constructor(private product:ProductsService){ }
 
@@ -27,13 +27,15 @@ export class ProductAdminComponent implements OnInit {
     }
     // list 
     getallproduct(){
-      this.Title ="Danh Sách Sản Phẩm "
+      this.Title ="Danh Sách Sản Phẩm Hiện có: "
 
       this.product.getproductall().subscribe((res: any)=>{
       
         this.items = res;
         console.log(this.items)
-        
+        //     
+        this.totalproduct = this.items.length;
+        // console.log(this.totalproduct)
       })
     }
     // 

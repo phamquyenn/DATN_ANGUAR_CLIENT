@@ -1,0 +1,44 @@
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  margin-right: auto; /* Đẩy nút thêm sang bên trái */
+}
+
+.search-container {
+  margin-left: auto; /* Đẩy hộp tìm kiếm sang bên phải */
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  margin-right: 8px;
+}
+
+
+
+.ti-search {
+  font-size: 16px;
+}
+
+  
+h4.box-title {
+  font-size: 18px; 
+  font-weight: 100; 
+  color: #333; 
+  margin: 0;
+}
+  

@@ -1,0 +1,77 @@
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <strong>{{ Title }}</strong> 
+        </div>
+        
+        <div class="card-body card-block">
+            <form  class="form-horizontal" [formGroup]="profileFrom" (ngSubmit)="onSubmit()" >
+                <div class="row">
+                    <div class="col-md-6">
+                        
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="title" class=" form-control-label">Người đăng </label></div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" placeholder="Nhập tên người đăng" class="form-control"  formControlName="author">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="image_url" class="form-control-label">File Ảnh</label></div>
+                            <div class="col-12 col-md-9">
+                                <input type="file" id="image_url" name="image_url" class="form-control-file" required (change)="onFileChange($event)" enctype="multipart/form-data" >
+                                <img [src]="preview" class="w-50" alt="">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="content" class=" form-control-label">Nội dung</label></div>
+                            <div class="col-12 col-md-9">
+                                <ckeditor formControlName="news_content" [editor]="Editor" rows="9"  ></ckeditor>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="content" class=" form-control-label">Chi tiết nội dung</label></div>
+                            <div class="col-12 col-md-9">
+                                <ckeditor formControlName="detail_content" [editor]="Editor" rows="9"  ></ckeditor>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="title" class=" form-control-label">Tiêu đề </label></div>
+                            <div class="col-12 col-md-9">
+                                <ckeditor formControlName="news_title" [editor]="Editor" rows="9"  ></ckeditor>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="title" class=" form-control-label">Chi tiết tiêu đề </label></div>
+                            <div class="col-12 col-md-9">
+                                <ckeditor formControlName="detail_title" [editor]="Editor" rows="9"  ></ckeditor>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <input type="submit" class="btn btn-success" value="Submit">
+                    </button>
+                    
+                    <a routerLink="/admin/blog-admin">
+                        <button type="button" class="btn btn-secondary btn-sm">
+                            <input type="submit" class="btn btn-secondary btn-sm" value="Quay Lại">
+                        </button>
+                    </a>
+                   
+                    
+                </div>
+                
+  
+            </form>
+        </div>
+        
+    </div>
+</div>
+
+  

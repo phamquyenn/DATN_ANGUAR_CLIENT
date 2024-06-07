@@ -24,6 +24,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SuccessComponent } from './success/success.component';
 import { OrderedComponent } from './ordered/ordered.component';
+import { DetailNewComponent } from './detail-new/detail-new.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 
 
@@ -46,6 +48,8 @@ import { OrderedComponent } from './ordered/ordered.component';
     AboutUsComponent,
     SuccessComponent,
     OrderedComponent,
+    DetailNewComponent,
+    OrderDetailComponent,
 
    
   ],

@@ -16,11 +16,26 @@ export class BlogComponent {
   p: number=1;
   pageSize: number = 10;
 
+  customSliderOptions: any = {
+    loop: true,
+    items:1,
+    center:true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive: {
+        0: {
+            items: 1
+        },
+
+    }
+  };
 
   ngOnInit(){
     this.blog.getblog().subscribe(res=>{
       this.blogs =res;
-      console.log( this.blogs)
+      console.log(this.blogs)
+  
     }),
     this.blog.getcategories().subscribe(res=>{
       this.category =res;

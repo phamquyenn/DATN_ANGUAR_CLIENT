@@ -91,8 +91,6 @@ export class UpdateCustomerComponent implements OnInit {
       },
       (error) => {
         console.error('Lỗi khi cập nhật khách hàng:', error);
-
-        // Hiển thị SweetAlert lỗi
         Swal.fire({
           icon: 'error',
           title: 'Lỗi',

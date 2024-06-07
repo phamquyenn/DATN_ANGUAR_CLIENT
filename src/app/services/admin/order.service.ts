@@ -38,11 +38,11 @@ export class OrderService {
     return this.httpClient.get<any>(`${host}/order/count`);
   }
   // 
-  updateOrderStatus(orderId: string): Observable<any> {
+  updateOrderStatus(orderId: any): Observable<any> {
     return this.httpClient.patch<any>(`${host}/order/update-status/${orderId}`, null, this.getHttpOptions());
   }
 
-  cancelOrderStatus(orderId: string): Observable<any> {
+  cancelOrderStatus(orderId: any): Observable<any> {
     return this.httpClient.patch<any>(`${host}/order/cancel-order/${orderId}`, null, this.getHttpOptions());
   }
   private getHttpOptions() {
@@ -54,5 +54,22 @@ export class OrderService {
       })
     };
   }
+  // lấy đơn hàng theo id đơn hàng và ngày đặt
+  getCustomerOrders(orderID: number, orderDate: string): Observable<any> {
+    return this.httpClient.get<any>(`${host}/order/customer-orders/${orderID}/${orderDate}`);
+  }
+  // lấy trạng thái theo id đơn hàng
+  getStatusOrdersID(orderID: number): Observable<any> {
+    return this.httpClient.get<any>(`${host}/order/status/${orderID}`);
+  }
+  //  Cập nhật trạng thái đơn hàng
+  updateStatus(order_id: number, newStatus: string): Observable<any> {
+    const url = `${host}/order/update-order-status/${order_id}`;
+    const body = { newStatus: newStatus };
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
 
+    return this.httpClient.post(url, body, { headers: headers });
+  }
 }

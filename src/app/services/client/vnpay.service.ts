@@ -16,6 +16,13 @@ export class VnpayService    {
     return this.httpClient.post<any>(endpoint, payment);
     
   }
+  //  thanh toán cod
+  createCodPayment(paymentData: any): Observable<any> {
+    const endpoint = `${host}/paymentcod/create_cod_payment`;
+
+    return this.httpClient.post<any>(endpoint, paymentData);
+  }
+  // 
   PaymentUrl(paymentData: any): Observable<any> {
     const proxyUrl = `${host}/vnpayment/vnpayment-proxy`;
     return this.httpClient.post(proxyUrl, paymentData);

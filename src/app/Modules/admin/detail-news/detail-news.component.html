@@ -1,0 +1,75 @@
+<div class="orders">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="box-title">{{ Title }} </h4>
+                </div>
+                
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="avatar">Ảnh</th>
+                                    <th>Title News</th>
+                                    <th >Title Details </th>
+                                    <th>Người đăng</th>
+                                    <th>Content News</th>
+                                    <th>Content Details</th>
+                                    <th>Ngày đăng</th>
+                                    <th>Sửa </th>
+                                    <th>Xóa </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr class=" pb-0">
+                                    <td class="avatar">
+                                        <div class="round-img">
+                                            <img [src]="getProductImageUrl(details_new[0].image_url)" alt="{{ details_new[0].image_url}}" />
+                                        </div>
+                                    </td>
+                                    <td class="serial" [innerHTML]=" details_new[0].news_title"></td>
+                                    <td class="serial" [innerHTML]=" details_new[0].detail_title"></td>
+                                    <td class="serial">{{ details_new[0].author }}</td>
+                                    <td class="serial" [innerHTML]=" details_new[0].news_content"></td>
+                                    <td [innerHTML]=" details_new[0].detail_content"> </td>
+                                    <td >  {{ details_new[0].date_updated | date:'dd/MM/yyyy' }}</td>
+                                    <td>
+                                       <span>
+                                            <a href="/admin/update_detail_new/{{ details_new[0].news_id }}">
+                                                <button type="button" class="btn btn-warning">Sửa</button>
+                                            </a>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <button type="button" class="btn btn-danger" (click)="onDelete(details_new[0].news_id)">Xóa</button>
+                                        </span>
+                                    </td>
+                                    
+                                </tr>
+                                
+                                
+                            </tbody>
+                            <tfoot>
+                                <td>
+                                    <span>
+                                        <a routerLink="/admin/blog-admin">
+                                            <button type="button" class="btn btn-secondary btn-sm">Quay lại</button>
+                                        </a>
+                                        
+                                    </span>
+                                </td>
+                            </tfoot>
+                           
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+        
+    </div>
+</div>

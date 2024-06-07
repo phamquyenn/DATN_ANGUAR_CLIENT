@@ -21,6 +21,22 @@ export class FavoritesComponent {
   pageSize: number = 10;
   productImage : string= '';
   Favorites: any[] =[];
+  // 
+  customSliderOptions: any = {
+    loop: true,
+    items:1,
+    center:true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive: {
+        0: {
+            items: 1
+        },
+
+    }
+  };
+  
 
   constructor(private active: ActivatedRoute,private dataService: HomeGetDataService, private favo: FavoritesService,private image: ProductsService, private user:UserService) { }
 

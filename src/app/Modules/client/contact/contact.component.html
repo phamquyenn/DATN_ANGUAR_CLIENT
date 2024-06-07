@@ -1,23 +1,33 @@
- <!-- ...:::: Start Breadcrumb Section:::... -->
- <div class="breadcrumb-section breadcrumb-bg-color--white">
-    <div class="breadcrumb-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="breadcrumb-title">Contact</h3>
-                    <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
-                        <nav aria-label="breadcrumb">
-                            <ul>
-                                <li><a routerLink="">Home</a></li>
-                                <li class="active" aria-current="page">Contact Us</li>
-                            </ul>
-                        </nav>
-                    </div>
+<div class="offcanvas-overlay"></div>
+    <div class="hero-slider-section">
+        <!-- Slider main container -->
+        <div class="hero-slider-active swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" id="swiper-wrapper-88828c723d145fdb" aria-live="polite" style="transition: all 0ms ease 0s;">
+                <div class="hero-single-slider-item swiper-slide swiper-slide-duplicate swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="1" role="group" aria-label="1 / 1" style="width: 1349px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
+                    <!-- Hero Slider Image -->
+                    <owl-carousel-o [options]="customSliderOptions">
+                        <!-- Slide 1 -->
+                        <ng-template carouselSlide>
+                          
+                            <div class="hero-slider-bg" >
+                              <img src="assets/images/banner/Blog_title.jpg" alt="">
+                              <div class="caption">ConTact</div>
+
+                            </div>
+                        </ng-template>
+                       
+                      </owl-carousel-o>
                 </div>
+               
             </div>
+            <!-- If we need pagination -->
+           
+            <!-- If we need navigation buttons -->
+           
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
         </div>
-    </div>
-</div> <!-- ...:::: End Breadcrumb Section:::... -->
+    </div> 
 
 <!-- ...::::Start Contact Section:::... -->
 <div class="contact-section">
@@ -42,8 +52,8 @@
                                 <i class="fa fa-globe"></i>
                             </div>
                             <div class="contact-details-content contact-phone">
-                                <a href="mailto:phamquyen@email.com">phamquyen@email.com</a>
-                                <a href="http://www.yourwebsite.com/">www.yourwebsite.com</a>
+                                <a href="mailto:phamquyen@email.com">phamquyen0214@gmail.com</a>
+                                <a href="http://www.yourwebsite.com/">www.Store420.com</a>
                             </div>
                         </div> <!-- End Contact Details Single Item -->
                         <!-- Start Contact Details Single Item -->
@@ -71,25 +81,38 @@
             <div class="col-lg-8">
                 <div class="contact-form section-top-gap-100" data-aos="fade-up"  data-aos-delay="200">
                     <h3>Đánh giá</h3>
-                    <form id="contact-form" action="https://htmlmail.hasthemes.com/nazmul/mail.php" method="post">
+                    <form  [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                         <div class="row">
+                            
                             <div class="col-lg-6">
                                 <div class="default-form-box mb-20">
-                                    <label for="contact-name">Tên </label>
-                                    <input name="name" type="text" id="contact-name">
+                                    <label for="subject" >Tên</label>
+                                    <input type="text" id="subject" [value]="account.name"  >
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="default-form-box mb-20">
-                                    <label for="contact-email">Email</label>
-                                    <input name="email" type="email" id="contact-email">
+                                    <label for="to" >Email</label>
+                                    <input type="email" [value]="account.email" >
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="default-form-box mb-20">
+                                    <label for="to" >Phone</label>
+                                    <input type="email"  [value]="account.phone"  >
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="default-form-box mb-20">
+                                    <label for="to" >Address</label>
+                                    <input type="email" [value]="account.address"  >
                                 </div>
                             </div>
                             
                             <div class="col-lg-12">
                                 <div class="default-form-box mb-20">
-                                    <label for="contact-message">Góp ý</label>
-                                    <textarea name="message" id="contact-message" cols="30" rows="10"></textarea>
+                                    <label for="body" >Góp ý</label>
+                                    <textarea  cols="30" rows="10" formControlName="content"></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-12">

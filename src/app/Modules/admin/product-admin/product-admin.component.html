@@ -3,17 +3,29 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="box-title">{{ Title }} </h4>
+                    <h4 class="box-title">{{ Title }}{{ totalproduct }}</h4>
                 </div>
                 <div class="card-body">
-                    <a routerLink="/admin/product-add">
-                        <button class="btn btn-primary"  >
-                            Thêm
-                            <i class="fa fa-plus-square"></i>
-                        </button> 
-                    </a>
-                    
-                </div>
+                    <div class="header">
+                      <a routerLink="/admin/product-add">
+                        <button class="btn btn-primary">
+                          Thêm
+                          <i class="fa fa-plus-square"></i>
+                        </button>
+                      </a>
+                      <!-- <div class="form-inline search-container">
+                        <form class="search-form">
+                          <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm ..." aria-label="Search">
+                          <button class="search-close" type="submit">
+                            <div class="icon-container">
+                              <span class="ti-search"></span>
+                            </div>
+                          </button>
+                        </form>
+                      </div> -->
+                    </div>
+                  </div>
+                  
                
                 <div class="card-body--">
                     <div class="table-stats order-table ov-h">
@@ -23,7 +35,6 @@
                                     <th class="serial">STT</th>
                                     <th class="avatar">Tên </th>
                                     <th>Ảnh</th>
-                                    <th>Mô Tả</th>
                                     <th>Thương Hiệu</th>
                                     <th>Hương Đầu</th>
                                     <th>Hương Cuối</th>
@@ -50,7 +61,6 @@
                                             <img [src]="getProductImageUrl(all.product_image)" alt="{{ all.product_image}}" />
                                         </div>
                                     </td>
-                                    <td  [innerHTML]=" all.description">  </td>
                                     <td>  <span class="brand">{{ all.brand }}</span> </td>
                                     <td> <span class="fragrance_family" [innerHTML]=" all.fragrance_family"></span> </td>
                                     <td> <span class="fragrance_family" [innerHTML]=" all.fragrance_notes"></span> </td>

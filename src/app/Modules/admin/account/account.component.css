@@ -1,0 +1,14 @@
+.card-body {
+    padding: 20px;
+    background-color: #f8f9fa; /* Màu nền */
+    border-radius: 10px; /* Bo góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bóng đổ */
+  }
+  
+  .box-title {
+    font-size: 18px; /* Kích thước chữ */
+    font-weight: bold; /* Độ đậm chữ */
+    color: #333; /* Màu chữ */
+    margin: 0; /* Xóa margin mặc định */
+  }
+  

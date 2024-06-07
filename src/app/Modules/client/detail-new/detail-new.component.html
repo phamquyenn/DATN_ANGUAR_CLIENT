@@ -1,0 +1,89 @@
+
+    <!-- Offcanvas Overlay -->
+    <div class="offcanvas-overlay"></div>
+    <div class="hero-slider-section">
+        <!-- Slider main container -->
+        <div class="hero-slider-active swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" id="swiper-wrapper-88828c723d145fdb" aria-live="polite" style="transition: all 0ms ease 0s;">
+                <div class="hero-single-slider-item swiper-slide swiper-slide-duplicate swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="1" role="group" aria-label="1 / 1" style="width: 1349px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
+                    <!-- Hero Slider Image -->
+                    <owl-carousel-o [options]="customSliderOptions">
+                        <!-- Slide 1 -->
+                        <ng-template carouselSlide>
+                          
+                            <div class="hero-slider-bg" >
+                              <img src="assets/images/banner/Blog_title.jpg" alt="">
+                              <div class="caption">Tin Tức</div>
+                            </div>
+                          
+                        </ng-template>
+                       
+                       
+                    </owl-carousel-o>
+                </div>
+               
+            </div>
+            <!-- If we need pagination -->
+           
+            <!-- If we need navigation buttons -->
+           
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+    </div> 
+
+
+    <!-- ...:::: Start Blog List Section:::... -->
+    <div class="blog-section">
+        <div class="container">
+            <div class="row flex-column-reverse flex-lg-row-reverse">
+                <div class="col-lg-3">
+                    <!-- Start Sidebar Area -->
+                    <div class="siderbar-section" data-aos="fade-up"  data-aos-delay="0">
+                        <!-- Start Single Sidebar Widget -->
+                        <div class="sidebar-single-widget" >
+                            <h4 class="sidebar-title">Loại Nước Hoa</h4>
+                            <div class="sidebar-content">
+                                <ul *ngFor="let loai of category" class="sidebar-menu">
+
+                                   <li ><a routerLink="/client/categories/{{ loai.category_id }}">{{ loai.category_name }}</a></li>   
+
+                                </ul>
+                            </div>
+                        </div> <!-- End Single Sidebar Widget -->
+                        <div class="sidebar-single-widget">
+                            <h2 class="sidebar-title">Thương Hiệu</h2>
+                            <div  class="sidebar-content">
+                                <div *ngFor="let new of brands" class="tag-link">
+                                    <a routerLink="/client/brand/{{ new.Brand_id }}">{{ new.name}}</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div> <!-- End Sidebar Area -->
+                </div>
+                <div class="col-lg-9" >
+                    <!-- Start Blog Single Content Area -->
+                    <div class="blog-single-wrapper">
+                       
+                        <ul class="post-meta aos-init aos-animate"  data-aos="fade-up"  data-aos-delay="200">
+                            <li>Đăng Bởi : <a href="#" class="author">{{ details_new[0].author}}</a></li> 
+                            <li>Ngày : <a href="#" class="date">{{ details_new[0].date_updated | date:'dd/MM/yyyy'}}</a></li> 
+                        </ul>
+                        
+                        <h4 class="post-title aos-init aos-animate" data-aos="fade-up"  data-aos-delay="400" [innerHTML]=" details_new[0].detail_title"></h4>
+                        <div class="blog-single-img aos-init aos-animate" data-aos="fade-up"  data-aos-delay="0">
+                            <img  class="img-fluid" [src]="getProductImageUrl(details_new[0].image_url)" alt="{{ details_new[0].image_url}}" style="width: 550px; height: auto;"/>
+                        </div>
+                        <div class="para-content aos-init aos-animate" data-aos="fade-up"  data-aos-delay="600">
+                            <p [innerHTML]=" details_new[0].detail_content "></p>
+                        </div>
+                        
+                    </div> <!-- End Blog Single Content Area -->
+                    
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End List Section:::... -->
+
